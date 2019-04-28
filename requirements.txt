@@ -2,6 +2,7 @@ altgraph==0.16.1
 average==1.0
 certifi==2019.3.9
 chardet==3.0.4
+configparser==3.7.4
 Django==2.1.7
 future==0.17.1
 idna==2.8
