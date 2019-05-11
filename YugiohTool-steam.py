@@ -136,7 +136,7 @@ class GameAssist:
 
 if __name__ == "__main__":
 	WindowsName = u'Yu-Gi-Oh! DUEL LINKS'
-	#WindowsName = u'雷电模拟器'
+	# WindowsName = u'雷电模拟器'
 	# WindowsName = u'BlueStacks App Player'
 	demo = GameAssist(WindowsName)
 	demo.start()

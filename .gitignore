@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+build
+dist
+dist.bak
+*.txt
+test*.py
+GameAssist.py
+YugiohTool.spec
