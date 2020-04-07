@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb001197-f5ce-4647-a122-9df6dcd1ba1c" name="Default Changelist" comment="update4.7.1">
+    <list default="true" id="eb001197-f5ce-4647-a122-9df6dcd1ba1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +20,7 @@
     <SUITE FILE_PATH="coverage/YugiohTool$testutf8.coverage" NAME="testutf8 Coverage Results" MODIFIED="1586246241863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
     <SUITE FILE_PATH="coverage/YugiohTool$windowsName.coverage" NAME="windowsName Coverage Results" MODIFIED="1585577476639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../pycharm" />
     <SUITE FILE_PATH="coverage/YugiohTool$Pic2py.coverage" NAME="Pic2py Coverage Results" MODIFIED="1585641059198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
-    <SUITE FILE_PATH="coverage/YugiohTool$testTuisong.coverage" NAME="testTuisong Coverage Results" MODIFIED="1586007100708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
+    <SUITE FILE_PATH="coverage/YugiohTool$testTuisong.coverage" NAME="testTuisong Coverage Results" MODIFIED="1586255280183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Test" />
     <SUITE FILE_PATH="coverage/YugiohTool$YugiohTool.coverage" NAME="YugiohTool Coverage Results" MODIFIED="1585892540677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FavoritesManager">
@@ -27,24 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/YugiohTool.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
-              <caret line="242" column="37" lean-forward="true" selection-start-line="242" selection-start-column="37" selection-end-line="242" selection-end-column="37" />
-              <folding>
-                <element signature="e#34#146#1" />
-                <element signature="e#147#163#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test/Yugiohdemo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1806">
-              <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+              <caret line="242" column="37" selection-start-line="242" selection-start-column="37" selection-end-line="242" selection-end-column="37" />
               <folding>
                 <element signature="e#34#146#1" />
                 <element signature="e#147#163#0" expanded="true" />
@@ -56,8 +44,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state relative-caret-position="4788">
+              <caret line="240" column="37" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
+              <folding>
+                <element signature="e#147#163#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -109,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/testTuisong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4074">
-              <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
+            <state relative-caret-position="2016">
+              <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
               <folding>
                 <element signature="e#147#163#0" expanded="true" />
               </folding>
@@ -166,7 +166,6 @@
         <option value="$PROJECT_DIR$/venv/Pic2py.py" />
         <option value="$PROJECT_DIR$/Pic2py.py" />
         <option value="$PROJECT_DIR$/yogiohtool2.py" />
-        <option value="$PROJECT_DIR$/Test/testTuisong.py" />
         <option value="$PROJECT_DIR$/Test/back.py" />
         <option value="$PROJECT_DIR$/Test/toolbackup.py" />
         <option value="$PROJECT_DIR$/Test/useful_functions.py" />
@@ -177,6 +176,7 @@
         <option value="$PROJECT_DIR$/Test/Yugiohdemo.py" />
         <option value="$PROJECT_DIR$/Yugiohdemo.py" />
         <option value="$PROJECT_DIR$/YugiohToolDemo.py" />
+        <option value="$PROJECT_DIR$/Test/testTuisong.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -216,7 +216,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/Test/useful_functions.py&#10;E:/YugiohTool/test.py&#10;E:/YugiohTool/Test/demo.py&#10;E:/YugiohTool/requirements.txt&#10;E:/YugiohTool/Test/toolbackup.py&#10;E:/YugiohTool/Test/YugiohTool-bak5.19.py&#10;E:/YugiohTool/Test/Yugiohdemo.py" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/Test/testTuisong.py&#10;E:/YugiohTool/Test/useful_functions.py&#10;E:/YugiohTool/test.py&#10;E:/YugiohTool/Test/demo.py&#10;E:/YugiohTool/requirements.txt&#10;E:/YugiohTool/Test/toolbackup.py&#10;E:/YugiohTool/Test/YugiohTool-bak5.19.py&#10;E:/YugiohTool/Test/Yugiohdemo.py" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -243,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Yugiohdemo">
+  <component name="RunManager" selected="Python.testTuisong">
     <configuration name="Pic2py (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="YugiohTool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -360,9 +360,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.testTuisong" />
         <item itemvalue="Python.Yugiohdemo" />
         <item itemvalue="Python.testutf8" />
-        <item itemvalue="Python.testTuisong" />
         <item itemvalue="Python.YugiohTool" />
         <item itemvalue="Python.Pic2py (1)" />
       </list>
@@ -416,7 +416,7 @@
       <workItem from="1586006040663" duration="1889000" />
       <workItem from="1586012655453" duration="1305000" />
       <workItem from="1586192544081" duration="984000" />
-      <workItem from="1586240281901" duration="8863000" />
+      <workItem from="1586240281901" duration="13324000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1557565021853</created>
@@ -453,11 +453,18 @@
       <option name="project" value="LOCAL" />
       <updated>1586247564102</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update4.7.1">
+      <created>1586252391217</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586252391217</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128193000" />
+    <option name="totallyTimeSpent" value="132654000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -477,7 +484,7 @@
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49733475" visible="true" weight="0.164859" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053304" side_tool="true" weight="0.28850326" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053304" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.329718" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
@@ -552,7 +559,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <MESSAGE value="update4.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="update4.7" />
+    <MESSAGE value="update4.7.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update4.7.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -671,16 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/testTuisong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4074">
-          <caret line="203" column="28" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
-          <folding>
-            <element signature="e#147#163#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/Pic2py.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -720,24 +718,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
+    <entry file="file://$PROJECT_DIR$/YugiohTool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="331">
+          <caret line="242" column="37" selection-start-line="242" selection-start-column="37" selection-end-line="242" selection-end-column="37" />
+          <folding>
+            <element signature="e#34#146#1" />
+            <element signature="e#147#163#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Test/Yugiohdemo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1806">
-          <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+        <state relative-caret-position="720">
+          <caret line="254" column="96" lean-forward="true" selection-start-line="254" selection-start-column="96" selection-end-line="254" selection-end-column="96" />
           <folding>
             <element signature="e#34#146#1" />
             <element signature="e#147#163#0" expanded="true" />
@@ -745,14 +740,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YugiohTool.py">
+    <entry file="file://$PROJECT_DIR$/Test/testTuisong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="242" column="37" lean-forward="true" selection-start-line="242" selection-start-column="37" selection-end-line="242" selection-end-column="37" />
+        <state relative-caret-position="2016">
+          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
           <folding>
-            <element signature="e#34#146#1" />
             <element signature="e#147#163#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4788">
+          <caret line="240" column="37" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
+          <folding>
+            <element signature="e#147#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
