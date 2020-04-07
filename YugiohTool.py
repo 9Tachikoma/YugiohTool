@@ -17,6 +17,17 @@ import pyautogui as pyg
 import configparser
 import logging
 import requests
+import base64
+
+from CaiDan_png import img as caidan
+from Chongshi_png import img as chongshi
+from duorenwu_png import img as duorenwu
+from Hao_png import img as hao
+from Jieshu_png import img as jiesu
+from JueDou_png import img as juedou
+from QueRen_png import img as queren
+from XiaYiBu_png import img as xiayibu
+from zhongduan_png import img as zhongduan
 
 importlib.reload(sys)
 
@@ -45,12 +56,31 @@ class GameAssist:
 			exit()
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
 		size = win32gui.GetWindowRect(self.hwnd)
+		tmp = open('YugiohTool/api-cd.dll', 'wb')  # 创建临时的文件
+		tmp.write(base64.b64decode(caidan))  # 把这个图片解码出来，写入文件中去。
+		tmp = open('YugiohTool/api-cs.dll', 'wb')
+		tmp.write(base64.b64decode(chongshi))
+		tmp = open('YugiohTool/api-drw.dll', 'wb')
+		tmp.write(base64.b64decode(duorenwu))
+		tmp = open('YugiohTool/api-h.dll', 'wb')
+		tmp.write(base64.b64decode(hao))
+		tmp = open('YugiohTool/api-js.dll', 'wb')
+		tmp.write(base64.b64decode(jiesu))
+		tmp = open('YugiohTool/api-jd.dll', 'wb')
+		tmp.write(base64.b64decode(juedou))
+		tmp = open('YugiohTool/api-qr.dll', 'wb')
+		tmp.write(base64.b64decode(queren))
+		tmp = open('YugiohTool/api-xyb.dll', 'wb')
+		tmp.write(base64.b64decode(xiayibu))
+		tmp = open('YugiohTool/api-zd.dll', 'wb')
+		tmp.write(base64.b64decode(zhongduan))
+		tmp.close()
 		print("窗口位置：", size)
 
 	@staticmethod
-	def tuisong(cishu, text):
-		api = "https://sc.ftqq.com/SCU50613T4fd24ba6562a59064776ec0f9ed1edb75ccd7a156a8ec.send"
-		title = "当前已运行" + str(cishu) + "次" + "，" + text
+	def tuisong(cishu, text, serviceapi):
+		api = serviceapi
+		title = "脚本运行" + str(cishu) + "次" + "，" + text
 		content = text
 		data = {
 			"text": title,
@@ -66,11 +96,13 @@ class GameAssist:
 		pyg.mouseDown()
 		pyg.mouseUp()
 
-	def start(self):  # 程序入口、控制中心
+	def pvp(self):  # pvp
 		global tuisong_time
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
+		start_count = count
+		serviceapi = cf.get("config", "serviceapi")
 		filename = "config.ini"  # 监控配置文件改动
 		info = os.stat(filename)
 		size = win32gui.GetWindowRect(self.hwnd)
@@ -78,12 +110,12 @@ class GameAssist:
 		while True:
 			time.sleep(0.5)
 			self.dianji(topx + 10, topy + 860)
-			jd = pyg.locateOnScreen('JueDou.png', confidence=0.60, grayscale=True)
-			hao = pyg.locateOnScreen('Hao.png', confidence=0.80, grayscale=True)
-			cd = pyg.locateOnScreen('CaiDan.png', confidence=0.80, grayscale=True)
-			xyb = pyg.locateOnScreen('XiaYiBu.png', confidence=0.80, grayscale=True)
-			qr = pyg.locateOnScreen('QueRen.png', confidence=0.80, grayscale=True)
-			cs = pyg.locateOnScreen('Chongshi.png', confidence=0.80, grayscale=True)
+			jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
+			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+			cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
+			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
+			# qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.80, grayscale=True)
+			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 
 			if cs is not None:
 				poscs = cs
@@ -94,9 +126,7 @@ class GameAssist:
 			if jd is not None:
 				posjd = jd
 				s_x, s_y = pyg.center(posjd)
-				time.sleep(1)
-				self.dianji(s_x, s_y)  # 点击决斗
-				time.sleep(0.5)
+				# time.sleep(1)
 				self.dianji(s_x, s_y)  # 点击决斗
 				count = count + 1
 				cf.set('config', 'count', str(count))
@@ -104,46 +134,81 @@ class GameAssist:
 				filename = "config.ini"  # 监控配置文件改动
 				info = os.stat(filename)
 				logger.info('决斗！已对战%s次', str(count))
-				while True:
-					time.sleep(0.2)
-					zd = pyg.locateOnScreen('zhongduan.png', confidence=0.80, grayscale=True)
+				# time.sleep(0.3)
+				for i in range(25):
+					time.sleep(0.3)
+					self.dianji(s_x, s_y)
+					zd = pyg.locateOnScreen('YugiohTool/api-zd.dll', confidence=0.80, grayscale=True)
 					if zd is not None:
-						while True:
-							time.sleep(0.5)
-							self.dianji(topx + 10, topy + 860)
-							drw = pyg.locateOnScreen('duorenwu.png', confidence=0.80, grayscale=True)
-							if drw is not None:
-								break
 						break
-				pyg.press('f2')  # 点击多任务键
-				time.sleep(32)
-				pyg.press('f2')  # 点击多任务键
-
+					cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
+					if cs is not None:
+						poscs = cs
+						s_x, s_y = pyg.center(poscs)
+						self.dianji(s_x, s_y)  # 点击重试
+						logger.info('无网络>重试')
+					# for n in range(50):
+						# 	time.sleep(0.5)
+						# 	self.dianji(topx + 10, topy + 860)
+				# jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
+				# if jd is not None:
+				# 	break
+				for i in range(50):
+					time.sleep(0.5)
+					self.dianji(topx + 10, topy + 860)
+					drw = pyg.locateOnScreen('YugiohTool/api-drw.dll', confidence=0.80, grayscale=True)
+					if drw is not None:
+						time.sleep(3)
+						cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
+						if cd is not None:
+							poscd = cd
+							s_x, s_y = pyg.center(poscd)
+							self.dianji(s_x, s_y)  # 点击菜单
+							logger.info('菜单')
+							time.sleep(0.5)
+							js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.80, grayscale=True)
+							if js is not None:
+								posjs = js
+								s_x, s_y = pyg.center(posjs)
+								self.dianji(s_x, s_y)  # 点击结束回合
+								logger.info('结束回合')
+								time.sleep(1)
+								pyg.press('f2')  # 点击多任务键
+								time.sleep(32)
+								pyg.press('f2')  # 点击多任务键
+								time.sleep(2)
+								break
+						else:
+							pyg.press('f2')  # 点击多任务键
+							time.sleep(32)
+							pyg.press('f2')  # 点击多任务键
+							break
 			if cd is not None:
 				poscd = cd
 				s_x, s_y = pyg.center(poscd)
 				self.dianji(s_x, s_y)  # 点击菜单
 				logger.info('菜单')
-				pyg.press('f2')  # 点击多任务键
-				time.sleep(32)
-				pyg.press('f2')  # 点击多任务键
-
-			js = pyg.locateOnScreen('Jieshu.png', confidence=0.80, grayscale=True)
-			if js is not None:
-				posjs = js
-				s_x, s_y = pyg.center(posjs)
-				self.dianji(s_x, s_y)  # 点击结束回合
-				logger.info('结束回合')
-			if qr is not None:
+				time.sleep(0.5)
+				js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.80, grayscale=True)
+				if js is not None:
+					posjs = js
+					s_x, s_y = pyg.center(posjs)
+					self.dianji(s_x, s_y)  # 点击结束回合
+					logger.info('结束回合')
+					time.sleep(1)
+					pyg.press('f2')  # 点击多任务键
+					time.sleep(32)
+					pyg.press('f2')  # 点击多任务键
+			'''if qr is not None:
 				self.dianji(topx + 100, topy + 670)
 				time.sleep(0.2)
 				self.dianji(topx + 300, topy + 670)
 				time.sleep(0.2)
 				self.dianji(topx + 270, topy + 837)  # 点击确认
-				logger.info('确认')
-			if hao is not None:
-				poshao = hao
-				s_x, s_y = pyg.center(poshao)
+				logger.info('确认')'''
+			if haod is not None:
+				poshaod = haod
+				s_x, s_y = pyg.center(poshaod)
 				self.dianji(s_x, s_y)  # 点击好
 				logger.info('好')
 			if xyb is not None:
@@ -154,13 +219,32 @@ class GameAssist:
 			if int(str(time.localtime().tm_min)[-1]) is 0:  # 每10分钟检测一次
 				if time.time() - info.st_mtime > 600:  # 文件没有改动超过10分钟微信推送提醒
 					if tuisong_time is None or time.time() - tuisong_time > 600:
-						self.tuisong(count, "脚本出毛病了！")
+						count_per_hour = count - start_count
+						self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
 						tuisong_time = time.time()
 				if int(str(time.localtime().tm_min)) == 00:
 					if time.time() - info.st_mtime < 600:
 						if tuisong_time is None or time.time() - tuisong_time > 600:
-							self.tuisong(count, "脚本正常运行！")
+							count_per_hour = count - start_count
+							start_count = count
+							self.tuisong(count_per_hour, "一切正常！", serviceapi)
 							tuisong_time = time.time()
+
+	'''def chuansongmen(self):  # 传送门
+		global tuisong_time
+		cf = configparser.ConfigParser()
+		cf.read("config.ini")  # 读取配置文件
+		count = int(cf.get("config", "count"))
+		start_count = count
+		serviceapi = cf.get("config", "serviceapi")
+		filename = "config.ini"  # 监控配置文件改动
+		info = os.stat(filename)
+		size = win32gui.GetWindowRect(self.hwnd)
+		topx, topy = size[0], size[1]
+		while True:
+			time.sleep(0.5)
+			self.dianji(topx + 10, topy + 860)
+			jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)'''
 
 
 if __name__ == "__main__":
@@ -168,4 +252,4 @@ if __name__ == "__main__":
 	WindowsName = u'雷电模拟器'
 	# WindowsName = u'BlueStacks App Player'
 	demo = GameAssist(WindowsName)
-	demo.start()
+	demo.pvp()
