@@ -75,7 +75,11 @@ class GameAssist:
 		tmp = open('YugiohTool/api-zd.dll', 'wb')
 		tmp.write(base64.b64decode(zhongduan))
 		tmp.close()
-		print("窗口位置：", size)
+		print("当前版本为完整版 ")
+		print("有任何脚本功能上的问题或者建议、想要更新的功能，请联系我（企鹅号70906346）")
+		print("要关闭脚本请把鼠标放到屏幕左上角停留2秒钟")
+
+		#print("窗口位置：", size)
 
 	@staticmethod
 	def tuisong(cishu, text, serviceapi):
@@ -102,6 +106,7 @@ class GameAssist:
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
 		start_count = count
+		start_time = time.time()
 		serviceapi = cf.get("config", "serviceapi")
 		filename = "config.ini"  # 监控配置文件改动
 		info = os.stat(filename)
@@ -134,7 +139,6 @@ class GameAssist:
 				filename = "config.ini"  # 监控配置文件改动
 				info = os.stat(filename)
 				logger.info('决斗！已对战%s次', str(count))
-				# time.sleep(0.3)
 				for i in range(25):
 					time.sleep(0.3)
 					self.dianji(s_x, s_y)
@@ -147,12 +151,6 @@ class GameAssist:
 						s_x, s_y = pyg.center(poscs)
 						self.dianji(s_x, s_y)  # 点击重试
 						logger.info('无网络>重试')
-					# for n in range(50):
-						# 	time.sleep(0.5)
-						# 	self.dianji(topx + 10, topy + 860)
-				# jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
-				# if jd is not None:
-				# 	break
 				for i in range(50):
 					time.sleep(0.5)
 					self.dianji(topx + 10, topy + 860)
@@ -216,12 +214,15 @@ class GameAssist:
 				s_x, s_y = pyg.center(posxyb)
 				self.dianji(s_x, s_y)  # 点击下一步
 				logger.info('下一步')
-			if int(str(time.localtime().tm_min)[-1]) is 0:  # 每10分钟检测一次
-				if time.time() - info.st_mtime > 600:  # 文件没有改动超过10分钟微信推送提醒
+			# 每10分钟检测一次
+			if int(str(time.localtime().tm_min)[-1]) is 0:
+				# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
+				if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
 					if tuisong_time is None or time.time() - tuisong_time > 600:
 						count_per_hour = count - start_count
 						self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
 						tuisong_time = time.time()
+				# 整点发送推送
 				if int(str(time.localtime().tm_min)) == 00:
 					if time.time() - info.st_mtime < 600:
 						if tuisong_time is None or time.time() - tuisong_time > 600:
@@ -229,6 +230,12 @@ class GameAssist:
 							start_count = count
 							self.tuisong(count_per_hour, "一切正常！", serviceapi)
 							tuisong_time = time.time()
+			# if time.time() - start_time > 1800:
+			# 	print("试用时间已到，请购买完整版或重启继续试用（按任意键退出...）")
+			# 	while True:
+			# 		pressedkey = msvcrt.getch()
+			# 		if pressedkey is not None:
+			# 			exit()
 
 	'''def chuansongmen(self):  # 传送门
 		global tuisong_time

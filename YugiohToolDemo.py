@@ -76,7 +76,14 @@ class GameAssist:
 		tmp = open('YugiohTool/api-zd.dll', 'wb')
 		tmp.write(base64.b64decode(zhongduan))
 		tmp.close()
-		print("窗口位置：", size)
+
+		print("使用前请务必先阅读'脚本使用方法.docx'")
+		print("当前版本为试用版，挂机30分钟后停止脚本，继续试用请重新打开本脚本")
+		print("如果试用满意可以购买完整版解除限制，欢迎联系我购买（企鹅号70906346）")
+		print("有任何脚本功能上的问题或者建议也请联系我")
+		print("要关闭脚本请把鼠标放到屏幕左上角停留2秒钟")
+
+		#print("窗口位置：", size)
 
 	@staticmethod
 	def tuisong(cishu, text, serviceapi):
@@ -136,7 +143,6 @@ class GameAssist:
 				filename = "config.ini"  # 监控配置文件改动
 				info = os.stat(filename)
 				logger.info('决斗！已对战%s次', str(count))
-				# time.sleep(0.3)
 				for i in range(25):
 					time.sleep(0.3)
 					self.dianji(s_x, s_y)
@@ -149,12 +155,6 @@ class GameAssist:
 						s_x, s_y = pyg.center(poscs)
 						self.dianji(s_x, s_y)  # 点击重试
 						logger.info('无网络>重试')
-					# for n in range(50):
-						# 	time.sleep(0.5)
-						# 	self.dianji(topx + 10, topy + 860)
-				# jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
-				# if jd is not None:
-				# 	break
 				for i in range(50):
 					time.sleep(0.5)
 					self.dianji(topx + 10, topy + 860)
@@ -218,13 +218,16 @@ class GameAssist:
 				s_x, s_y = pyg.center(posxyb)
 				self.dianji(s_x, s_y)  # 点击下一步
 				logger.info('下一步')
-			if int(str(time.localtime().tm_min)[-1]) is 0:  # 每10分钟检测一次
-				if time.time() - info.st_mtime > 600:  # 文件没有改动超过10分钟微信推送提醒
+			# 每10分钟检测一次
+			if int(str(time.localtime().tm_min)[-1]) is 0:
+				# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
+				if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
 					if tuisong_time is None or time.time() - tuisong_time > 600:
 						count_per_hour = count - start_count
 						self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
 						tuisong_time = time.time()
-				if int(str(time.localtime().tm_min)) == 00:  # 整点发送推送
+				# 整点发送推送
+				if int(str(time.localtime().tm_min)) == 00:
 					if time.time() - info.st_mtime < 600:
 						if tuisong_time is None or time.time() - tuisong_time > 600:
 							count_per_hour = count - start_count
