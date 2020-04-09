@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72875dd0-afff-4538-b89e-77d2b90e6215" name="Default Changelist" comment="添加十级门功能">
+    <list default="true" id="72875dd0-afff-4538-b89e-77d2b90e6215" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YugiohTool.py" beforeDir="false" afterPath="$PROJECT_DIR$/YugiohTool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YugiohToolDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/YugiohToolDemo.py" afterDir="false" />
@@ -28,16 +29,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/YugiohTool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="175" column="37" lean-forward="true" selection-start-line="175" selection-start-column="37" selection-end-line="175" selection-end-column="37" />
+            <state relative-caret-position="191">
+              <caret line="109" column="19" lean-forward="true" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
               <folding>
                 <element signature="e#147#163#0" expanded="true" />
-                <element signature="e#1162#4160#0" />
                 <element signature="e#4218#4412#0" />
                 <element signature="e#4450#4518#0" />
+                <element signature="e#4656#11340#0" />
                 <element signature="e#11376#17224#0" />
-                <element signature="e#17335#18153#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test/testprint.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -45,15 +54,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="170" column="28" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
+            <state relative-caret-position="90">
+              <caret line="111" column="8" lean-forward="true" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="23" />
               <folding>
                 <element signature="e#147#163#0" expanded="true" />
-                <element signature="e#1162#4537#0" />
                 <element signature="e#4328#4522#0" />
                 <element signature="e#3540#3608#0" />
+                <element signature="e#4775#10947#0" />
                 <element signature="e#10999#17028#0" />
-                <element signature="e#17290#18144#0" />
               </folding>
             </state>
           </provider>
@@ -80,9 +88,10 @@
         <option value="$PROJECT_DIR$/Yugiohdemo.py" />
         <option value="$PROJECT_DIR$/图片/Pic2py.py" />
         <option value="$PROJECT_DIR$/Test/testmethod.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/YugiohToolDemo.py" />
         <option value="$PROJECT_DIR$/Test/testprint.py" />
         <option value="$PROJECT_DIR$/YugiohTool.py" />
-        <option value="$PROJECT_DIR$/YugiohToolDemo.py" />
       </list>
     </option>
   </component>
@@ -272,7 +281,7 @@
       <updated>1586282384382</updated>
       <workItem from="1586282389757" duration="28000" />
       <workItem from="1586282440667" duration="1288000" />
-      <workItem from="1586398239369" duration="31335000" />
+      <workItem from="1586398239369" duration="33286000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1586348545667</created>
@@ -288,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1586367229385</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加十级门功能&#10;添加pvp竞技场KV杯，排名，休闲选择功能&#10;更新欢迎界面">
+      <created>1586450357983</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586450357983</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49956000" />
+    <option name="totallyTimeSpent" value="51907000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -312,7 +328,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.45553145" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.45553145" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -321,7 +337,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4968017" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50319827" side_tool="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" weight="0.3286334" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4968017" visible="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4989339" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -376,7 +392,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <MESSAGE value="添加十级门功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加十级门功能" />
+    <MESSAGE value="添加十级门功能&#10;添加pvp竞技场KV杯，排名，休闲选择功能&#10;更新欢迎界面" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加十级门功能&#10;添加pvp竞技场KV杯，排名，休闲选择功能&#10;更新欢迎界面" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -455,44 +472,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Yugiohdemo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2036">
+        <state relative-caret-position="4431">
           <caret line="285" column="9" selection-start-line="285" selection-start-column="9" selection-end-line="285" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="111" column="8" lean-forward="true" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="23" />
+          <folding>
+            <element signature="e#147#163#0" expanded="true" />
+            <element signature="e#4328#4522#0" />
+            <element signature="e#3540#3608#0" />
+            <element signature="e#4775#10947#0" />
+            <element signature="e#10999#17028#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Test/testprint.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="170" column="28" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
-          <folding>
-            <element signature="e#147#163#0" expanded="true" />
-            <element signature="e#1162#4537#0" />
-            <element signature="e#4328#4522#0" />
-            <element signature="e#3540#3608#0" />
-            <element signature="e#10999#17028#0" />
-            <element signature="e#17290#18144#0" />
-          </folding>
+        <state relative-caret-position="436">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/YugiohTool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="175" column="37" lean-forward="true" selection-start-line="175" selection-start-column="37" selection-end-line="175" selection-end-column="37" />
+        <state relative-caret-position="191">
+          <caret line="109" column="19" lean-forward="true" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
           <folding>
             <element signature="e#147#163#0" expanded="true" />
-            <element signature="e#1162#4160#0" />
             <element signature="e#4218#4412#0" />
             <element signature="e#4450#4518#0" />
+            <element signature="e#4656#11340#0" />
             <element signature="e#11376#17224#0" />
-            <element signature="e#17335#18153#0" />
           </folding>
         </state>
       </provider>

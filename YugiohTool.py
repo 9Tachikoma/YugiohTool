@@ -19,7 +19,6 @@ import configparser
 import logging
 import requests
 import base64
-import msvcrt
 
 from CaiDan_png import img as caidan
 from Chongshi_png import img as chongshi
@@ -110,16 +109,16 @@ class GameAssist:
 		tmp.write(base64.b64decode(xiuxian))
 		tmp.close()
 		first_list = []
-		print("  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
-		first_list.append(["┃", "脚本交流和售后群819827842                           ", "┃"])
-		first_list.append(["┃", "使用前请务必先阅读'脚本使用方法.docx'                   ", "┃"])
-		first_list.append(["┃", "当前版本为完整版，有任何问题或者建议请联系我              ", "┃"])
-		first_list.append(["┃", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", "┃"])
+		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+		first_list.append([" ", "脚本交流和售后群908563503 ", " "])
+		first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
+		first_list.append([" ", "当前版本为完整版，有任何问题或者建议请联系我", " "])
+		first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
 		for f_ul in first_list:
-			print("{0:^6}\t{1:{3}^30}\t{2:^6}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
+			print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
 			if f_ul != first_list[-1]:
-				print("  ┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃")
-		print("  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+				print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
 
 	def tuisong(self, cishu, text, serviceapi):  # 推送到手机
 		api = serviceapi
@@ -476,16 +475,16 @@ if __name__ == "__main__":
 
 	while True:
 		ulist = []
-		print("  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓")
-		ulist.append(["┃", "1、pvp竞技场KC杯自杀    ", "┃"])
-		ulist.append(["┃", "2、pvp竞技场排名决斗自杀", "┃"])
-		ulist.append(["┃", "3、pvp竞技场休闲决斗自杀", "┃"])
-		ulist.append(["┃", "4、自动十级门          ", "┃"])
+		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+		ulist.append([" ", "1、pvp竞技场KC杯自杀", " "])
+		ulist.append([" ", "2、pvp竞技场排名决斗自杀", " "])
+		ulist.append([" ", "3、pvp竞技场休闲决斗自杀", " "])
+		ulist.append([" ", "4、自动十级门         ", " "])
 		for ul in ulist:
-			print("{0:^6}\t{1:{3}^9}\t{2:^6}".format(ul[0], ul[1], ul[2], chr(12288)))
+			print("{0:^2}\t{1:{3}^9}\t{2:^2}".format(ul[0], ul[1], ul[2], chr(12288)))
 			if ul != ulist[-1]:
-				print("  ┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃")
-		print("  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛")
+				print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
 		while True:
 			try:
 				print("请输入要选择的功能前面的数字并回车.....")
