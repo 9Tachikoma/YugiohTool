@@ -289,6 +289,7 @@ class GameAssist:
 									count_per_hour = count - start_count
 									self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
 									tuisong_time = time.time()
+									break
 							# 整点发送推送
 							if int(str(time.localtime().tm_min)) == 00:
 								if time.time() - info.st_mtime < 600:
