@@ -112,9 +112,9 @@ class GameAssist:
 		tmp.close()
 		first_list = []
 		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-		first_list.append([" ", "脚本交流和售后群908563503 ", " "])
+		first_list.append([" ", "试用版脚本交流群819827842", " "])
 		first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
-		first_list.append([" ", "当前版本为完整版，有任何问题或者建议请联系我", " "])
+		first_list.append([" ", "当前版本为试用版，挂机三十分钟后停止，继续试用请重新打开脚本", " "])
 		first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
 		for f_ul in first_list:
 			print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
