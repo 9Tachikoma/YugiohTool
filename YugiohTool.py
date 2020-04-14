@@ -224,7 +224,7 @@ class GameAssist:
 									self.dianji(s_x, s_y)  # 点击重试
 							for i in range(50):
 								time.sleep(0.5)
-								self.dianji(topx + 315, topy + 90)
+								self.dianji(topx + 10, topy + 860)
 								drw = pyg.locateOnScreen('YugiohTool/api-drw.dll', confidence=0.80, grayscale=True)
 								if drw is not None:
 									time.sleep(3)
@@ -261,7 +261,6 @@ class GameAssist:
 								posjs = js
 								s_x, s_y = pyg.center(posjs)
 								self.dianji(s_x, s_y)  # 点击结束回合
-								self.logger.info('结束回合')
 								time.sleep(1)
 								pyg.press('f2')  # 点击多任务键
 								time.sleep(32)
@@ -380,7 +379,7 @@ class GameAssist:
 					for i in range(100):
 						gongjicount = 0
 						time.sleep(0.5)
-						self.dianji(topx + 315, topy + 90)
+						self.dianji(topx + 10, topy + 860)
 						cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
 						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 						if cd is not None:
@@ -557,7 +556,7 @@ class GameAssist:
 								while a < 150:
 									gongjicount = 0
 									time.sleep(0.5)
-									self.dianji(topx + 315, topy + 90)
+									self.dianji(topx + 10, topy + 860)
 									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
 									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 									a = a + 1
@@ -658,7 +657,6 @@ class GameAssist:
 																			raise StopIteration("Bad hostname")
 											except StopIteration:
 												pass
-
 										else:
 											self.dianji(topx + 400, topy + 680)  # 点击结束回合
 											huihecount = huihecount + 1
@@ -817,7 +815,7 @@ class GameAssist:
 								while a < 150:
 									gongjicount = 0
 									time.sleep(0.5)
-									self.dianji(topx + 315, topy + 90)
+									self.dianji(topx + 10, topy + 860)
 									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
 									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 									a = a + 1
