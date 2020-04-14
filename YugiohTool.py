@@ -242,23 +242,14 @@ class GameAssist:
 											self.dianji(s_x, s_y)  # 点击结束回合
 											time.sleep(1)
 											pyg.press('f2')  # 点击多任务键
-											time.sleep(1)
+											time.sleep(32)
 											pyg.press('f2')  # 点击多任务键
-											time.sleep(30)
-											pyg.press('f2')  # 点击多任务键
-											time.sleep(1)
-											pyg.press('f2')  # 点击多任务键
-											time.sleep(1)
+											time.sleep(2)
 											break
 									else:
 										pyg.press('f2')  # 点击多任务键
-										time.sleep(1)
+										time.sleep(32)
 										pyg.press('f2')  # 点击多任务键
-										time.sleep(30)
-										pyg.press('f2')  # 点击多任务键
-										time.sleep(1)
-										pyg.press('f2')  # 点击多任务键
-										time.sleep(1)  # 点击多任务键
 										break
 						if cd is not None:
 							poscd = cd
@@ -272,13 +263,8 @@ class GameAssist:
 								self.dianji(s_x, s_y)  # 点击结束回合
 								time.sleep(1)
 								pyg.press('f2')  # 点击多任务键
-								time.sleep(1)
+								time.sleep(32)
 								pyg.press('f2')  # 点击多任务键
-								time.sleep(30)
-								pyg.press('f2')  # 点击多任务键
-								time.sleep(1)
-								pyg.press('f2')  # 点击多任务键
-								time.sleep(1)  # 点击多任务键
 						if qr is not None:
 							posqr = qr
 							s_x, s_y = pyg.center(posqr)

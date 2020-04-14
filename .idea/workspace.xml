@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72875dd0-afff-4538-b89e-77d2b90e6215" name="Default Changelist" comment="">
+    <list default="true" id="72875dd0-afff-4538-b89e-77d2b90e6215" name="Default Changelist" comment="updateV1.3.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YugiohTool.py" beforeDir="false" afterPath="$PROJECT_DIR$/YugiohTool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YugiohToolDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/YugiohToolDemo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,15 +26,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/YugiohTool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1213">
-              <caret line="482" column="33" lean-forward="true" selection-start-line="482" selection-start-column="33" selection-end-line="482" selection-end-column="33" />
+            <state relative-caret-position="483">
+              <caret line="280" column="45" selection-end-line="1052" />
               <folding>
                 <element signature="e#1075#1090#0" />
                 <element signature="e#11306#17296#0" />
-                <element signature="e#17344#27798#0" />
               </folding>
             </state>
           </provider>
@@ -51,28 +48,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Test/leidian4.0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="265" column="63" selection-start-line="265" selection-start-column="59" selection-end-line="265" selection-end-column="63" />
+            <state relative-caret-position="315">
+              <caret line="1044" column="42" lean-forward="true" selection-start-line="1044" selection-start-column="42" selection-end-line="1044" selection-end-column="42" />
               <folding>
-                <element signature="e#148#164#0" expanded="true" />
+                <element signature="e#1075#1090#0" />
+                <element signature="e#11695#17685#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test/leidian4.0.py">
+        <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
-              <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
+              <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
               <folding>
-                <element signature="e#147#163#0" expanded="true" />
-                <element signature="e#4232#4426#0" />
-                <element signature="e#4464#4532#0" />
-                <element signature="e#4571#4638#0" />
+                <element signature="e#148#164#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,6 +90,7 @@
       <find>100</find>
       <find>结束</find>
       <find>结束回合</find>
+      <find>1800</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,11 +109,11 @@
         <option value="$PROJECT_DIR$/Test/testprint.py" />
         <option value="$PROJECT_DIR$/Test/testfor.py" />
         <option value="$PROJECT_DIR$/Test/testmain.py" />
-        <option value="$PROJECT_DIR$/Test/leidian4.0.py" />
         <option value="$PROJECT_DIR$/Test/testmain2.py" />
         <option value="$PROJECT_DIR$/testmain.py" />
-        <option value="$PROJECT_DIR$/YugiohTool.py" />
         <option value="$PROJECT_DIR$/YugiohToolDemo.py" />
+        <option value="$PROJECT_DIR$/YugiohTool.py" />
+        <option value="$PROJECT_DIR$/Test/leidian4.0.py" />
       </list>
     </option>
   </component>
@@ -321,7 +317,7 @@
       <workItem from="1586765913376" duration="7894000" />
       <workItem from="1586791983851" duration="4424000" />
       <workItem from="1586797149532" duration="2611000" />
-      <workItem from="1586841811054" duration="1241000" />
+      <workItem from="1586841811054" duration="4803000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1586348545667</created>
@@ -365,11 +361,25 @@
       <option name="project" value="LOCAL" />
       <updated>1586796696661</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updateV1.3.1">
+      <created>1586845892749</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586845892749</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updateV1.3.2">
+      <created>1586878841005</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586878841005</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85588000" />
+    <option name="totallyTimeSpent" value="89150000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -397,9 +407,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4968017" weight="0.3286334" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50373137" side_tool="true" weight="0.36117136" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49626866" visible="true" weight="0.37635574" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4989339" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49573562" visible="true" weight="0.37635574" />
+      <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.4989339" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5042644" side_tool="true" weight="0.37635574" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -457,7 +467,9 @@
     <MESSAGE value="更新欢迎界面" />
     <MESSAGE value="updateV1.2" />
     <MESSAGE value="updateV1.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="updateV1.3" />
+    <MESSAGE value="updateV1.3.1" />
+    <MESSAGE value="updateV1.3.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="updateV1.3.2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -598,29 +610,6 @@
     <entry file="file://$PROJECT_DIR$/Test/YugiohTool-bak5.19.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="265" column="63" selection-start-line="265" selection-start-column="59" selection-end-line="265" selection-end-column="63" />
-          <folding>
-            <element signature="e#148#164#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/leidian4.0.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="283" column="43" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="43" />
-          <folding>
-            <element signature="e#147#163#0" expanded="true" />
-            <element signature="e#4232#4426#0" />
-            <element signature="e#4464#4532#0" />
-            <element signature="e#4571#4638#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/testprint.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
@@ -628,14 +617,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/YugiohToolDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
+          <folding>
+            <element signature="e#148#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/YugiohTool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1213">
-          <caret line="482" column="33" lean-forward="true" selection-start-line="482" selection-start-column="33" selection-end-line="482" selection-end-column="33" />
+        <state relative-caret-position="483">
+          <caret line="280" column="45" selection-end-line="1052" />
           <folding>
             <element signature="e#1075#1090#0" />
             <element signature="e#11306#17296#0" />
-            <element signature="e#17344#27798#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/leidian4.0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="1044" column="42" lean-forward="true" selection-start-line="1044" selection-start-column="42" selection-end-line="1044" selection-end-column="42" />
+          <folding>
+            <element signature="e#1075#1090#0" />
+            <element signature="e#11695#17685#0" />
           </folding>
         </state>
       </provider>
