@@ -34,10 +34,13 @@ from fanhui_png import img as fanhui
 from lvse_png import img as lvse
 from zhandou_png import img as zhandou
 from shijuedou_png import img as shijuedou
-
 from kc_png import img as kcb
 from paiming_png import img as paimin
 from xiuxian_png import img as xiuxian
+
+from kunnan_png import img as kunnan
+from zidongjuedou_png import img as zidongjuedou
+from zudui_png import img as zudui
 
 importlib.reload(sys)
 
@@ -107,6 +110,12 @@ class GameAssist:
 		tmp.write(base64.b64decode(paimin))
 		tmp = open('YugiohTool/api-xx.dll', 'wb')
 		tmp.write(base64.b64decode(xiuxian))
+		tmp = open('YugiohTool/api-kn.dll', 'wb')
+		tmp.write(base64.b64decode(kunnan))
+		tmp = open('YugiohTool/api-zdjd.dll', 'wb')
+		tmp.write(base64.b64decode(zidongjuedou))
+		tmp = open('YugiohTool/api-zdui.dll', 'wb')
+		tmp.write(base64.b64decode(zudui))
 		tmp.close()
 		first_list = []
 		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
@@ -1002,6 +1011,73 @@ class GameAssist:
 					time.sleep(1)
 			self.dianji(topx + 315, topy + 90)
 
+	def huodong_zuidui(self):
+		win32api.keybd_event(13, 0, 0, 0)  #
+		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
+		global tuisong_time
+		start_time = time.time()
+		size = win32gui.GetWindowRect(self.hwnd)
+		topx, topy = size[0], size[1]
+		while True:
+			time.sleep(0.5)
+			self.dianji(topx + 315, topy + 90)
+			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
+			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
+			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
+			if zjm is not None:
+				self.dianji(topx + 190, topy + 890)  # 点击活动固定点
+				time.sleep(2)
+				zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.80, grayscale=True)
+				time.sleep(0.3)
+				if zdui is not None:
+					poszdui = zdui
+					s_x, s_y = pyg.center(poszdui)
+					self.dianji(s_x, s_y)  # 点击组队决斗
+					while True:
+						time.sleep(0.3)
+						self.dianji(topx + 315, topy + 90)
+						zdjd = pyg.locateOnScreen('YugiohTool/api-zdjd.dll', confidence=0.80, grayscale=True)
+						kn = pyg.locateOnScreen('YugiohTool/api-kn.dll', confidence=0.80, grayscale=True)
+						zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.80, grayscale=True)
+						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+						if zdjd is not None:
+							poszdjd = zdjd
+							s_x, s_y = pyg.center(poszdjd)
+							self.dianji(s_x, s_y)  # 点击自动决斗
+						if haod is not None:
+							poshaod = haod
+							s_x, s_y = pyg.center(poshaod)
+							self.dianji(s_x, s_y)  # 点击好
+						if kn is not None:
+							poskn = kn
+							s_x, s_y = pyg.center(poskn)
+							self.dianji(s_x, s_y)  # 点击困难
+						if zdui is not None:
+							poszdui = zdui
+							s_x, s_y = pyg.center(poszdui)
+							self.dianji(s_x, s_y)  # 点击组队决斗
+
+			if haod is not None:
+				poshaod = haod
+				s_x, s_y = pyg.center(poshaod)
+				self.dianji(s_x, s_y)  # 点击好
+			if cs is not None:
+				poscs = cs
+				s_x, s_y = pyg.center(poscs)
+				self.dianji(s_x, s_y)  # 点击重试
+			if fhui is not None:
+				posfhui = fhui
+				s_x, s_y = pyg.center(posfhui)
+				self.dianji(s_x, s_y)
+				time.sleep(1)
+				fhui2 = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
+				if fhui2 is not None:
+					posfhui2 = fhui2
+					s_x, s_y = pyg.center(posfhui2)
+					self.dianji(s_x, s_y)  # 点击返回
+					time.sleep(1)
+
 
 if __name__ == "__main__":
 	# WindowsName = u'Yu-Gi-Oh! DUEL LINKS'  # steam
@@ -1015,6 +1091,7 @@ if __name__ == "__main__":
 		ulist.append([" ", "4、自动十级门         ", " "])
 		ulist.append([" ", "5、pvp休闲决斗战斗  ", " "])
 		ulist.append([" ", "6、pvp排名决斗战斗  ", " "])
+		ulist.append([" ", "7、最新活动组队决斗全自动  ", " "])
 		for ul in ulist:
 			print("{0:^2}\t{1:{3}^9}\t{2:^2}".format(ul[0], ul[1], ul[2], chr(12288)))
 			if ul != ulist[-1]:
@@ -1034,6 +1111,9 @@ if __name__ == "__main__":
 		elif input1 == '6':
 			demo = GameAssist(WindowsName)
 			demo.pvp_paimin_towin()
+		elif input1 == '7':
+			demo = GameAssist(WindowsName)
+			demo.huodong_zuidui()
 		else:
 			print("!!!!!输入有误,请重新输入!!!!!")
 			time.sleep(1)
