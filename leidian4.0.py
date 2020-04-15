@@ -9,7 +9,6 @@
 @time: 2019/4/25 20:02
 """
 import importlib
-import msvcrt
 import os
 import sys
 import win32api
@@ -71,7 +70,6 @@ class GameAssist:
 		self.hwnd = win32gui.FindWindow(0, wdname)  # 取得窗口句柄
 		if not self.hwnd:
 			print("窗口找不到，请打开【%s】" % wdname)
-
 			exit()
 		# win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
 		# size = win32gui.GetWindowRect(self.hwnd)
@@ -112,9 +110,9 @@ class GameAssist:
 		tmp.close()
 		first_list = []
 		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-		first_list.append([" ", "试用版脚本交流群819827842", " "])
+		first_list.append([" ", "脚本交流和售后群908563503 ", " "])
 		first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
-		first_list.append([" ", "当前版本为试用版，挂机三十分钟后停止，继续试用请重新打开脚本", " "])
+		first_list.append([" ", "当前版本为完整版，有任何问题或者建议请联系我", " "])
 		first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
 		for f_ul in first_list:
 			print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
@@ -183,7 +181,6 @@ class GameAssist:
 					time.sleep(2)
 					xx = pyg.locateOnScreen('YugiohTool/api-xx.dll', confidence=0.80, grayscale=True)
 					mode = xx
-
 				if mode is not None:
 					mode = mode
 					s_x, s_y = pyg.center(mode)
@@ -243,16 +240,24 @@ class GameAssist:
 											posjs = js
 											s_x, s_y = pyg.center(posjs)
 											self.dianji(s_x, s_y)  # 点击结束回合
+											pyg.press('f2')  # 点击多任务键
 											time.sleep(1)
 											pyg.press('f2')  # 点击多任务键
-											time.sleep(32)
+											time.sleep(30)
 											pyg.press('f2')  # 点击多任务键
-											time.sleep(2)
+											time.sleep(1)
+											pyg.press('f2')  # 点击多任务键
+											time.sleep(1)  # 点击多任务键
 											break
 									else:
 										pyg.press('f2')  # 点击多任务键
-										time.sleep(32)
+										time.sleep(1)
 										pyg.press('f2')  # 点击多任务键
+										time.sleep(30)
+										pyg.press('f2')  # 点击多任务键
+										time.sleep(1)
+										pyg.press('f2')  # 点击多任务键
+										time.sleep(1)  # 点击多任务键
 										break
 						if cd is not None:
 							poscd = cd
@@ -301,24 +306,16 @@ class GameAssist:
 										start_count = count
 										self.tuisong(count_per_hour, "一切正常！", serviceapi)
 										tuisong_time = time.time()
-						if time.time() - start_time > 1800:
-							self.logger.info('试用时间已到，请购买完整版或重启继续试用（按任意键退出...）')
-							while True:
-								pressedkey = msvcrt.getch()
-								if pressedkey is not None:
-									exit()
 			if haod is not None:
 				poshaod = haod
 				s_x, s_y = pyg.center(poshaod)
 				self.dianji(s_x, s_y)  # 点击好
 				time.sleep(1)
-			# self.dianji(topx + 10, topy + 730)
 			if xyb is not None:
 				posxyb = xyb
 				s_x, s_y = pyg.center(posxyb)
 				self.dianji(s_x, s_y)  # 点击下一步
 				time.sleep(1)
-			# self.dianji(topx + 10, topy + 730)
 			if cs is not None:
 				poscs = cs
 				s_x, s_y = pyg.center(poscs)
@@ -403,10 +400,8 @@ class GameAssist:
 									time.sleep(0.5)
 									for x in range(25):
 										time.sleep(0.3)
-										ls = pyg.locateOnScreen('YugiohTool/api-ls.dll', confidence=0.80,
-										                        grayscale=False)
-										haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80,
-										                          grayscale=True)
+										ls = pyg.locateOnScreen('YugiohTool/api-ls.dll', confidence=0.80, grayscale=False)
+										haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 										if ls is not None:
 											posls = ls
 											ls_x, ls_y = pyg.center(posls)
@@ -463,12 +458,6 @@ class GameAssist:
 											start_count = csmcount
 											self.tuisong(count_per_hour, "一切正常！", serviceapi)
 											tuisong_time = time.time()
-							if time.time() - start_time > 1800:
-								self.logger.info('试用时间已到，请购买完整版或重启继续试用（按任意键退出...）')
-								while True:
-									pressedkey = msvcrt.getch()
-									if pressedkey is not None:
-										exit()
 					except Networkerror:
 						pass
 
@@ -500,7 +489,6 @@ class GameAssist:
 		win32api.keybd_event(13, 0, 0, 0)  #
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
 		global tuisong_time
-		# mode = None
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
@@ -695,23 +683,16 @@ class GameAssist:
 													start_count = count
 													self.tuisong(count_per_hour, "一切正常！", serviceapi)
 													tuisong_time = time.time()
-									if time.time() - start_time > 1800:
-										self.logger.info('试用时间已到，请购买完整版或重启继续试用（按任意键退出...）')
-										while True:
-											pressedkey = msvcrt.getch()
-											if pressedkey is not None:
-												exit()
 							except Networkerror:
 								pass
 						if qr is not None:
 							posqr = qr
-							self.dianji(s_x, s_y)  # 点击菜单
+							s_x, s_y = pyg.center(posqr)
 							self.dianji(topx + 100, topy + 670)
 							time.sleep(0.2)
 							self.dianji(topx + 300, topy + 670)
 							time.sleep(0.2)
-							s_x, s_y = pyg.center(posqr)
-						# self.dianji(topx + 270, topy + 837)  # 点击确认
+							self.dianji(s_x, s_y)  # 点击菜单
 						if haod is not None:
 							poshaod = haod
 							s_x, s_y = pyg.center(poshaod)
@@ -737,24 +718,16 @@ class GameAssist:
 										start_count = count
 										self.tuisong(count_per_hour, "一切正常！", serviceapi)
 										tuisong_time = time.time()
-						if time.time() - start_time > 1800:
-							self.logger.info('试用时间已到，请购买完整版或重启继续试用（按任意键退出...）')
-							while True:
-								pressedkey = msvcrt.getch()
-								if pressedkey is not None:
-									exit()
 			if haod is not None:
 				poshaod = haod
 				s_x, s_y = pyg.center(poshaod)
 				self.dianji(s_x, s_y)  # 点击好
 				time.sleep(1)
-			# self.dianji(topx + 10, topy + 730)
 			if xyb is not None:
 				posxyb = xyb
 				s_x, s_y = pyg.center(posxyb)
 				self.dianji(s_x, s_y)  # 点击下一步
 				time.sleep(1)
-			# self.dianji(topx + 10, topy + 730)
 			if cs is not None:
 				poscs = cs
 				s_x, s_y = pyg.center(poscs)
@@ -776,7 +749,6 @@ class GameAssist:
 		win32api.keybd_event(13, 0, 0, 0)  #
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
 		global tuisong_time
-		# mode = None
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
@@ -818,7 +790,6 @@ class GameAssist:
 							poscs = cs
 							s_x, s_y = pyg.center(poscs)
 							self.dianji(s_x, s_y)  # 点击重试
-
 						if jd is not None:
 							posjd = jd
 							s_x, s_y = pyg.center(posjd)
@@ -946,7 +917,6 @@ class GameAssist:
 																			raise StopIteration("Bad hostname")
 											except StopIteration:
 												pass
-
 										else:
 											self.dianji(topx + 400, topy + 680)  # 点击结束回合
 											huihecount = huihecount + 1
@@ -970,12 +940,6 @@ class GameAssist:
 													start_count = count
 													self.tuisong(count_per_hour, "一切正常！", serviceapi)
 													tuisong_time = time.time()
-									if time.time() - start_time > 1800:
-										self.logger.info('试用时间已到，请购买完整版或重启继续试用（按任意键退出...）')
-										while True:
-											pressedkey = msvcrt.getch()
-											if pressedkey is not None:
-												exit()
 							except Networkerror:
 								pass
 						if qr is not None:
@@ -985,7 +949,7 @@ class GameAssist:
 							time.sleep(0.2)
 							self.dianji(topx + 300, topy + 670)
 							time.sleep(0.2)
-							self.dianji(s_x, s_y)  # 点击确认
+							self.dianji(s_x, s_y)  # 点击菜单
 						if haod is not None:
 							poshaod = haod
 							s_x, s_y = pyg.center(poshaod)
@@ -1011,12 +975,6 @@ class GameAssist:
 										start_count = count
 										self.tuisong(count_per_hour, "一切正常！", serviceapi)
 										tuisong_time = time.time()
-						if time.time() - start_time > 1800:
-							self.logger.info('试用时间已到，请购买完整版或重启继续试用（按任意键退出...）')
-							while True:
-								pressedkey = msvcrt.getch()
-								if pressedkey is not None:
-									exit()
 			if haod is not None:
 				poshaod = haod
 				s_x, s_y = pyg.center(poshaod)
@@ -1042,7 +1000,7 @@ class GameAssist:
 					s_x, s_y = pyg.center(posfhui2)
 					self.dianji(s_x, s_y)  # 点击返回
 					time.sleep(1)
-			self.dianji(topx + 10, topy + 757)
+			self.dianji(topx + 315, topy + 90)
 
 
 if __name__ == "__main__":
