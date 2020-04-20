@@ -37,10 +37,12 @@ from shijuedou_png import img as shijuedou
 from kc_png import img as kcb
 from paiming_png import img as paimin
 from xiuxian_png import img as xiuxian
-
 from kunnan_png import img as kunnan
 from zidongjuedou_png import img as zidongjuedou
 from zudui_png import img as zudui
+
+from feichangkunnan_png import img as fckunnan
+from clear_png import img as clear
 
 importlib.reload(sys)
 
@@ -119,6 +121,11 @@ class GameAssist:
 		tmp.write(base64.b64decode(zidongjuedou))
 		tmp = open('YugiohTool/api-zdui.dll', 'wb')
 		tmp.write(base64.b64decode(zudui))
+
+		tmp = open('YugiohTool/api-fckn.dll', 'wb')
+		tmp.write(base64.b64decode(fckunnan))
+		tmp = open('YugiohTool/api-cl.dll', 'wb')
+		tmp.write(base64.b64decode(clear))
 		tmp.close()
 		first_list = []
 		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
@@ -143,7 +150,8 @@ class GameAssist:
 		requests.post(api, data=data)
 		self.logger.info("推送到手机")
 
-	def dianji(self,x, y):
+	@staticmethod
+	def dianji(x, y):
 		pyg.moveTo(x, y)
 		time.sleep(0.2)
 		pyg.mouseDown()
@@ -188,7 +196,7 @@ class GameAssist:
 		size = win32gui.GetWindowRect(self.hwnd)
 		while True:
 			time.sleep(0.5)
-			self.dianji_guding(0.4663, 0.0857)
+			self.dianji_guding(0.4663, 0.0857)  # 点击空白
 			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
 			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
 			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
@@ -203,7 +211,7 @@ class GameAssist:
 				# 	self.dianji_guding(0.4537, 0.9679)  # 点击pvp门固定点
 				# 	time.sleep(1)
 				kc = pyg.locateOnScreen('YugiohTool/api-kc.dll', confidence=0.80, grayscale=True)
-				pm = pyg.locateOnScreen('YugiohTool/api-pm.dll', confidence=0.80, grayscale=True)
+				pm = pyg.locateOnScreen('YugiohTool/api-pm.dll', confidence=0.60, grayscale=True)
 				if str(arg) == '1':
 					mode = kc
 				elif str(arg) == '2':
@@ -223,7 +231,7 @@ class GameAssist:
 						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 						cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
 						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
-						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.80, grayscale=True)
+						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.60, grayscale=True)
 						cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 
 						if cs is not None:
@@ -316,28 +324,23 @@ class GameAssist:
 										self.tuisong(count_per_hour, "一切正常！", serviceapi)
 										tuisong_time = time.time()
 			if haod is not None:
-				poshaod = haod
-				s_x, s_y = pyg.center(poshaod)
+				s_x, s_y = pyg.center(haod)
 				self.dianji(s_x, s_y)  # 点击好
 				time.sleep(1)
 			if xyb is not None:
-				posxyb = xyb
-				s_x, s_y = pyg.center(posxyb)
+				s_x, s_y = pyg.center(xyb)
 				self.dianji(s_x, s_y)  # 点击下一步
 				time.sleep(1)
 			if cs is not None:
-				poscs = cs
-				s_x, s_y = pyg.center(poscs)
+				s_x, s_y = pyg.center(cs)
 				self.dianji(s_x, s_y)  # 点击重试
 			if fhui is not None:
-				posfhui = fhui
-				s_x, s_y = pyg.center(posfhui)
+				s_x, s_y = pyg.center(fhui)
 				self.dianji(s_x, s_y)  # 点击返回
 				time.sleep(1)
 				fhui2 = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 				if fhui2 is not None:
-					posfhui2 = fhui2
-					s_x, s_y = pyg.center(posfhui2)
+					s_x, s_y = pyg.center(fhui2)
 					self.dianji(s_x, s_y)  # 点击返回
 					time.sleep(1)
 
@@ -354,7 +357,7 @@ class GameAssist:
 		size = win32gui.GetWindowRect(self.hwnd)
 		while True:
 			time.sleep(0.5)
-			self.dianji_guding(0.5723, 0.0926)
+			self.dianji_guding(0.5723, 0.0926) # 点击空白
 			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
 			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
 			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
@@ -379,8 +382,7 @@ class GameAssist:
 						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
 						if sjd is not None:
-							possjd = sjd
-							s_x, s_y = pyg.center(possjd)
+							s_x, s_y = pyg.center(sjd)
 							self.dianji(s_x, s_y)  # 点击决斗
 							csmcount = csmcount + 1
 							cf.set('config', 'csmcount', str(csmcount))
@@ -389,92 +391,92 @@ class GameAssist:
 							info = os.stat(filename)
 							self.logger.info('第%s次传送门>>>>>>', str(csmcount))
 							huihecount = 1
-							try:
-								for i in range(100):
-									gongjicount = 0
+						try:
+							for g in range(100):
+								gongjicount = 0
+								time.sleep(0.5)
+								self.dianji_guding(0.3, 0.8109)
+								cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
+								haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+								if cd is not None:
+									self.dianji_guding(0.4783, 0.9328)  # 点击卡牌
 									time.sleep(0.5)
-									self.dianji_guding(0.3, 0.8109)
-									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
-									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
-									if cd is not None:
-										self.dianji_guding(0.4783, 0.9328)  # 点击卡牌
+									self.dianji_guding(0.4603, 0.7448)  # 点击通常召唤
+									time.sleep(2)
+									poscd = cd
+									s_x, s_y = pyg.center(poscd)
+									self.dianji(s_x, s_y)  # 点击菜单
+									time.sleep(1)
+									zdu = pyg.locateOnScreen('YugiohTool/api-zdu.dll', confidence=0.80, grayscale=True)
+									if zdu is not None:
+										poszdu = zdu
+										zdu_x, zdu_y = pyg.center(poszdu)
+										self.dianji(zdu_x, zdu_y)  # 点击战斗
 										time.sleep(0.5)
-										self.dianji_guding(0.4603, 0.7448)  # 点击通常召唤
-										time.sleep(2)
-										poscd = cd
-										s_x, s_y = pyg.center(poscd)
-										self.dianji(s_x, s_y)  # 点击菜单
-										time.sleep(1)
-										zdu = pyg.locateOnScreen('YugiohTool/api-zdu.dll', confidence=0.80, grayscale=True)
-										if zdu is not None:
-											poszdu = zdu
-											zdu_x, zdu_y = pyg.center(poszdu)
-											self.dianji(zdu_x, zdu_y)  # 点击战斗
-											time.sleep(0.5)
-											for x in range(10):
-												time.sleep(0.3)
-												ls = pyg.locateOnScreen('YugiohTool/api-ls.dll', confidence=0.80,
-												                        grayscale=False)
-												haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80,
-												                          grayscale=True)
-												if ls is not None:
-													posls = ls
-													ls_x, ls_y = pyg.center(posls)
-													self.tuodong(ls_x, ls_y)  # 拖动攻击
-													gongjicount = gongjicount + 1
-													time.sleep(1)
-												if haod is not None:
-													poshaod = haod
-													haod_x, haod_y = pyg.center(poshaod)
-													self.dianji(haod_x, haod_y)  # 点击好
-													raise Networkerror("Bad hostname")
-												if gongjicount >= huihecount or gongjicount >= 3:  # 结束攻击
-													time.sleep(1)
-													for j in range(25):
-														time.sleep(0.3)
-														# 检测菜单
-														cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+										for x in range(10):
+											time.sleep(0.3)
+											ls = pyg.locateOnScreen('YugiohTool/api-ls.dll', confidence=0.80,
+											                        grayscale=False)
+											haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80,
+											                          grayscale=True)
+											if ls is not None:
+												posls = ls
+												ls_x, ls_y = pyg.center(posls)
+												self.tuodong(ls_x, ls_y)  # 拖动攻击
+												gongjicount = gongjicount + 1
+												time.sleep(1)
+											if haod is not None:
+												poshaod = haod
+												haod_x, haod_y = pyg.center(poshaod)
+												self.dianji(haod_x, haod_y)  # 点击好
+												raise Networkerror("Bad hostname")
+											if gongjicount >= huihecount or gongjicount >= 3:  # 结束攻击
+												time.sleep(1)
+												for j in range(25):
+													time.sleep(0.3)
+													# 检测菜单
+													cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+													                        grayscale=True)
+													if cd is not None:
+														poscd = cd
+														s_x, s_y = pyg.center(poscd)
+														self.dianji(s_x, s_y)  # 点击菜单
+														time.sleep(0.5)
+														js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.60,
 														                        grayscale=True)
-														if cd is not None:
-															poscd = cd
-															s_x, s_y = pyg.center(poscd)
-															self.dianji(s_x, s_y)  # 点击菜单
-															time.sleep(0.5)
-															js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.60,
-															                        grayscale=True)
-															if js is not None:
-																posjs = js
-																s_x, s_y = pyg.center(posjs)
-																self.dianji(s_x, s_y)  # 点击结束回合
-																huihecount = huihecount + 1
-																time.sleep(1)
-																break
-													break
-										else:
-											self.dianji_guding(0.6302, 0.6797)  # 点击结束回合
-											huihecount = huihecount + 1
-									if haod is not None:
-										poshaod = haod
-										haod_x, haod_y = pyg.center(poshaod)
-										self.dianji(haod_x, haod_y)  # 点击好
-										raise Networkerror("Bad hostname")
-									if int(str(time.localtime().tm_min)[-1]) is 0:
-										# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-										if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
+														if js is not None:
+															posjs = js
+															s_x, s_y = pyg.center(posjs)
+															self.dianji(s_x, s_y)  # 点击结束回合
+															huihecount = huihecount + 1
+															time.sleep(1)
+															break
+												break
+									else:
+										self.dianji_guding(0.6302, 0.6797)  # 点击结束回合
+										huihecount = huihecount + 1
+								if haod is not None:
+									poshaod = haod
+									haod_x, haod_y = pyg.center(poshaod)
+									self.dianji(haod_x, haod_y)  # 点击好
+									raise Networkerror("Bad hostname")
+								if int(str(time.localtime().tm_min)[-1]) is 0:
+									# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
+									if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
+										if tuisong_time is None or time.time() - tuisong_time > 600:
+											count_per_hour = csmcount - start_count
+											self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
+											tuisong_time = time.time()
+									# 整点发送推送
+									if int(str(time.localtime().tm_min)) == 00:
+										if time.time() - info.st_mtime < 600:
 											if tuisong_time is None or time.time() - tuisong_time > 600:
 												count_per_hour = csmcount - start_count
-												self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
+												start_count = csmcount
+												self.tuisong(count_per_hour, "一切正常！", serviceapi)
 												tuisong_time = time.time()
-										# 整点发送推送
-										if int(str(time.localtime().tm_min)) == 00:
-											if time.time() - info.st_mtime < 600:
-												if tuisong_time is None or time.time() - tuisong_time > 600:
-													count_per_hour = csmcount - start_count
-													start_count = csmcount
-													self.tuisong(count_per_hour, "一切正常！", serviceapi)
-													tuisong_time = time.time()
-							except Networkerror:
-								break
+						except Networkerror:
+							break
 						if haod is not None:
 							poshaod = haod
 							s_x, s_y = pyg.center(poshaod)
@@ -1032,64 +1034,62 @@ class GameAssist:
 		global tuisong_time
 		start_time = time.time()
 		size = win32gui.GetWindowRect(self.hwnd)
-		topx, topy = size[0], size[1]
 		while True:
 			time.sleep(0.5)
-			self.dianji(topx + 315, topy + 90)
+			self.dianji_guding(0.4663, 0.0857)  # 点击空白
 			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
 			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 			if zjm is not None:
-				self.dianji(topx + 190, topy + 890)  # 点击活动固定点
+				self.dianji_guding(0.5072,0.8935)  # 点击活动固定点
 				time.sleep(2)
-				zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.80, grayscale=True)
+				zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.60, grayscale=True)
 				time.sleep(0.3)
 				if zdui is not None:
-					poszdui = zdui
-					s_x, s_y = pyg.center(poszdui)
+					s_x, s_y = pyg.center(zdui)
 					self.dianji(s_x, s_y)  # 点击组队决斗
 					while True:
 						time.sleep(0.3)
-						self.dianji(topx + 315, topy + 90)
-						zdjd = pyg.locateOnScreen('YugiohTool/api-zdjd.dll', confidence=0.80, grayscale=True)
+						self.dianji_guding(0.4663, 0.0857)  # 点击空白
+						zdjd = pyg.locateOnScreen('YugiohTool/api-zdjd.dll', confidence=0.60, grayscale=True)
 						kn = pyg.locateOnScreen('YugiohTool/api-kn.dll', confidence=0.80, grayscale=True)
-						zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.80, grayscale=True)
+						zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.60, grayscale=True)
 						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+						fckn = pyg.locateOnScreen('YugiohTool/api-fckn.dll', confidence=0.80, grayscale=True)
+						cl = pyg.locateOnScreen('YugiohTool/api-cl.dll', confidence=0.80, grayscale=True)
 						if zdjd is not None:
-							poszdjd = zdjd
-							s_x, s_y = pyg.center(poszdjd)
+							s_x, s_y = pyg.center(zdjd)
 							self.dianji(s_x, s_y)  # 点击自动决斗
 						if haod is not None:
-							poshaod = haod
-							s_x, s_y = pyg.center(poshaod)
+							s_x, s_y = pyg.center(haod)
 							self.dianji(s_x, s_y)  # 点击好
+						if fckn is not None:
+							s_x, s_y = pyg.center(fckn)
+							self.dianji(s_x, s_y)  # 点击非常困难
 						if kn is not None:
-							poskn = kn
-							s_x, s_y = pyg.center(poskn)
+							s_x, s_y = pyg.center(kn)
 							self.dianji(s_x, s_y)  # 点击困难
 						if zdui is not None:
-							poszdui = zdui
-							s_x, s_y = pyg.center(poszdui)
+							s_x, s_y = pyg.center(zdui)
 							self.dianji(s_x, s_y)  # 点击组队决斗
+						if cl is not None:
+							s_x, s_y = pyg.center(cl)
+							self.dianji(s_x, s_y)  # 点击clear
 
 			if haod is not None:
-				poshaod = haod
-				s_x, s_y = pyg.center(poshaod)
+				s_x, s_y = pyg.center(haod)
 				self.dianji(s_x, s_y)  # 点击好
 			if cs is not None:
-				poscs = cs
-				s_x, s_y = pyg.center(poscs)
+				s_x, s_y = pyg.center(cs)
 				self.dianji(s_x, s_y)  # 点击重试
 			if fhui is not None:
-				posfhui = fhui
-				s_x, s_y = pyg.center(posfhui)
+				s_x, s_y = pyg.center(fhui)
 				self.dianji(s_x, s_y)
 				time.sleep(1)
 				fhui2 = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 				if fhui2 is not None:
-					posfhui2 = fhui2
-					s_x, s_y = pyg.center(posfhui2)
+					s_x, s_y = pyg.center(fhui2)
 					self.dianji(s_x, s_y)  # 点击返回
 					time.sleep(1)
 
