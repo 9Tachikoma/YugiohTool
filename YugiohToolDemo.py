@@ -45,30 +45,21 @@ from zudui_png import img as zudui
 
 importlib.reload(sys)
 
-tuisong_time = None
+
+def _async_raise(tid, exctype):  # 关闭线程
+	tid = ctypes.c_long(tid)
+	if not inspect.isclass(exctype):
+		exctype = type(exctype)
+	res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exctype))
+	if res == 0:
+		raise ValueError("invalid thread id")
+	elif res != 1:
+		ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
+		raise SystemError("PyThreadState_SetAsyncExc failed")
 
 
-class Networkerror(RuntimeError):
-	def __init__(self, arg):
-		self.args = arg
-
-
-class GameAssist:
-	def __init__(self, wdname):  # 初始化
-		self.logger = logging.getLogger()  # 不加名称设置root logger
-		self.logger.setLevel(logging.DEBUG)
-		formatter = logging.Formatter(
-			'%(asctime)s - %(name)s - %(levelname)s: - %(message)s',
-			datefmt='%Y-%m-%d %H:%M:%S')
-		fh = logging.FileHandler('log.txt')  # 使用FileHandler输出到文件
-		fh.setLevel(logging.DEBUG)
-		fh.setFormatter(formatter)
-		ch = logging.StreamHandler()  # 使用StreamHandler输出到屏幕
-		ch.setLevel(logging.DEBUG)
-		ch.setFormatter(formatter)
-		self.logger.addHandler(ch)  # 添加两个Handler
-		self.logger.addHandler(fh)
-		logging.getLogger("urllib3.connectionpool").setLevel(logging.WARNING)  # 设置requests不输出日志
+def stop_thread(thread):  # 关闭线程
+	_async_raise(thread.ident, SystemExit)
 
 		win32api.keybd_event(13, 0, 0, 0)  #
 		self.hwnd = win32gui.FindWindow(0, wdname)  # 取得窗口句柄

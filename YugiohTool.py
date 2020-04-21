@@ -49,8 +49,10 @@ def tuisongfunction():
 	start_time = time.time()
 	serviceapi = cf.get("config", "serviceapi")
 	filename = "config.ini"  # 监控配置文件改动
-	info = os.stat(filename)
 	while True:
+		time.sleep(10)
+		info = os.stat(filename)
+		count = int(cf.get("config", "count"))
 		if int(str(time.localtime().tm_min)[-1]) is 0:
 			# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
 			if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
@@ -93,19 +95,19 @@ def main():
 			print("请输入要选择的功能前面的数字并回车.....")
 			input1 = str(input(""))
 			if input1 == '1' or input1 == '2' or input1 == '3':
-				demo = Steam(steam)
+				demo = Steam(steam, "1")
 				demo.pvp_tolose_steam(input1)
 			elif input1 == '4':
-				demo = Steam(steam)
+				demo = Steam(steam, "1")
 				demo.chuansongmen_steam()
 			elif input1 == '5':
-				demo = Steam(steam)
+				demo = Steam(steam, "1")
 				demo.pvp_xiuxian_towin_steam()
 			elif input1 == '6':
-				demo = Steam(steam)
+				demo = Steam(steam, "1")
 				demo.pvp_paimin_towin_steam()
 			elif input1 == '7':
-				demo = Steam(steam)
+				demo = Steam(steam, "1")
 				demo.huodong_zuidui_steam()
 			else:
 				print("!!!!!输入有误,请重新输入!!!!!")
@@ -129,19 +131,19 @@ def main():
 			print("请输入要选择的功能前面的数字并回车.....")
 			input1 = str(input(""))
 			if input1 == '1' or input1 == '2' or input1 == '3':
-				demo = Moniqi(moniqi)
+				demo = Moniqi(moniqi, "1")
 				demo.pvp_tolose_moniqi(input1)
 			elif input1 == '4':
-				demo = Moniqi(moniqi)
+				demo = Moniqi(moniqi, "1")
 				demo.chuansongmen_moniqi()
 			elif input1 == '5':
-				demo = Moniqi(moniqi)
+				demo = Moniqi(moniqi, "1")
 				demo.pvp_xiuxian_towin_moniqi()
 			elif input1 == '6':
-				demo = Moniqi(moniqi)
+				demo = Moniqi(moniqi, "1")
 				demo.pvp_paimin_towin_moniqi()
 			elif input1 == '7':
-				demo = Moniqi(moniqi)
+				demo = Moniqi(moniqi, "1")
 				demo.huodong_zuidui_moniqi()
 			else:
 				print("!!!!!输入有误,请重新输入!!!!!")
@@ -154,5 +156,6 @@ def main():
 if __name__ == '__main__':
 	t_tuosong = threading.Thread(target=tuisongfunction, args=())
 	t_main = threading.Thread(target=main, args=())
+	t_tuosong.setDaemon(True)
 	t_tuosong.start()
 	t_main.start()

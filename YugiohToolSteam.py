@@ -9,7 +9,6 @@
 @time: 2019/4/25 20:02
 """
 import importlib
-import os
 import random
 import sys
 import win32api
@@ -18,7 +17,6 @@ import time
 import pyautogui as pyg
 import configparser
 import logging
-import requests
 import base64
 
 from CaiDan_png import img as caidan
@@ -56,7 +54,7 @@ class Networkerror(RuntimeError):
 
 
 class Steam:
-	def __init__(self, wdname):  # 初始化
+	def __init__(self, wdname, free):  # 初始化
 		self.logger = logging.getLogger()  # 不加名称设置root logger
 		self.logger.setLevel(logging.DEBUG)
 		formatter = logging.Formatter(
@@ -130,27 +128,28 @@ class Steam:
 		tmp.write(base64.b64decode(guanbi))
 		tmp.close()
 		first_list = []
-		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-		first_list.append([" ", "脚本交流和售后群908563503 ", " "])
-		first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
-		first_list.append([" ", "当前版本为完整版，有任何问题或者建议请联系我", " "])
-		first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
-		for f_ul in first_list:
-			print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
-			if f_ul != first_list[-1]:
-				print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
-		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
-
-	def tuisong(self, cishu, text, serviceapi):  # 推送到手机
-		api = serviceapi
-		title = "脚本运行" + str(cishu) + "次" + "，" + text
-		content = text
-		data = {
-			"text": title,
-			"desp": content
-		}
-		requests.post(api, data=data)
-		self.logger.info("推送到手机")
+		if free == "1":
+			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+			first_list.append([" ", "脚本交流和售后群908563503 ", " "])
+			first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
+			first_list.append([" ", "当前版本为完整版，有任何问题或者建议请联系我", " "])
+			first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
+			for f_ul in first_list:
+				print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
+				if f_ul != first_list[-1]:
+					print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+		if free == "2":
+			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+			first_list.append([" ", "试用版脚本交流群819827842", " "])
+			first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
+			first_list.append([" ", "当前版本为试用版，挂机三十分钟后停止，继续试用请重新打开脚本", " "])
+			first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
+			for f_ul in first_list:
+				print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
+				if f_ul != first_list[-1]:
+					print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
 
 	@staticmethod
 	def dianji(x, y):
@@ -185,16 +184,10 @@ class Steam:
 	def pvp_tolose_steam(self, arg):  # pvp自杀
 		win32api.keybd_event(13, 0, 0, 0)  #
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
-		global tuisong_time
 		mode = None
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
-		start_count = count
-		start_time = time.time()
-		serviceapi = cf.get("config", "serviceapi")
-		filename = "config.ini"  # 监控配置文件改动
-		info = os.stat(filename)
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
@@ -243,8 +236,6 @@ class Steam:
 							count = count + 1
 							cf.set('config', 'count', str(count))
 							cf.write(open("config.ini", 'w'))  # 写入count次数
-							filename = "config.ini"  # 监控配置文件改动
-							info = os.stat(filename)
 							self.logger.info('决斗！已对战%s次', str(count))
 						if cd is not None:
 							s_x, s_y = pyg.center(cd)
@@ -267,23 +258,6 @@ class Steam:
 						if xyb is not None:
 							s_x, s_y = pyg.center(xyb)
 							self.dianji(s_x, s_y)  # 点击下一步
-						# 每10分钟检测一次
-						if int(str(time.localtime().tm_min)[-1]) is 0:
-							# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-							if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
-								if tuisong_time is None or time.time() - tuisong_time > 600:
-									count_per_hour = count - start_count
-									self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
-									tuisong_time = time.time()
-									break
-							# 整点发送推送
-							if int(str(time.localtime().tm_min)) == 00:
-								if time.time() - info.st_mtime < 600:
-									if tuisong_time is None or time.time() - tuisong_time > 600:
-										count_per_hour = count - start_count
-										start_count = count
-										self.tuisong(count_per_hour, "一切正常！", serviceapi)
-										tuisong_time = time.time()
 			if haod is not None:
 				s_x, s_y = pyg.center(haod)
 				self.dianji(s_x, s_y)  # 点击好
@@ -308,15 +282,9 @@ class Steam:
 	def chuansongmen_steam(self):  # 十级门
 		win32api.keybd_event(13, 0, 0, 0)  #
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
-		global tuisong_time
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		csmcount = int(cf.get("config", "csmcount"))
-		filename = "config.ini"
-		info = os.stat(filename)
-		start_count = csmcount
-		start_time = time.time()
-		serviceapi = cf.get("config", "serviceapi")
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
@@ -342,7 +310,6 @@ class Steam:
 						time.sleep(0.5)
 						self.dianji_guding(0.5723, 0.0926)
 						sjd = pyg.locateOnScreen('YugiohTool/api-sjd.dll', confidence=0.60, grayscale=True)
-
 						if sjd is not None:
 							s_x, s_y = pyg.center(sjd)
 							self.dianji(s_x, s_y)  # 点击决斗
@@ -350,6 +317,7 @@ class Steam:
 							cf.set('config', 'csmcount', str(csmcount))
 							cf.write(open("config.ini", 'w'))  # 写入count次数
 							self.logger.info('第%s次传送门>>>>>>', str(csmcount))
+							huihecount = 1
 							break
 					try:
 						for i in range(100):
@@ -413,21 +381,6 @@ class Steam:
 								haod_x, haod_y = pyg.center(haod)
 								self.dianji(haod_x, haod_y)  # 点击好
 								raise Networkerror("Bad hostname")
-							if int(str(time.localtime().tm_min)[-1]) is 0:
-								# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-								if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
-									if tuisong_time is None or time.time() - tuisong_time > 600:
-										count_per_hour = csmcount - start_count
-										self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
-										tuisong_time = time.time()
-								# 整点发送推送
-								if int(str(time.localtime().tm_min)) == 00:
-									if time.time() - info.st_mtime < 600:
-										if tuisong_time is None or time.time() - tuisong_time > 600:
-											count_per_hour = csmcount - start_count
-											start_count = csmcount
-											self.tuisong(count_per_hour, "一切正常！", serviceapi)
-											tuisong_time = time.time()
 					except Networkerror:
 						pass
 
@@ -453,15 +406,9 @@ class Steam:
 	def pvp_xiuxian_towin_steam(self):  # pvp休闲towin
 		win32api.keybd_event(13, 0, 0, 0)  #
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
-		global tuisong_time
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
-		start_count = count
-		start_time = time.time()
-		serviceapi = cf.get("config", "serviceapi")
-		filename = "config.ini"  # 监控配置文件改动
-		info = os.stat(filename)
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
@@ -499,8 +446,6 @@ class Steam:
 							count = count + 1
 							cf.set('config', 'count', str(count))
 							cf.write(open("config.ini", 'w'))  # 写入count次数
-							filename = "config.ini"  # 监控配置文件改动
-							info = os.stat(filename)
 							self.logger.info('决斗！已对战%s次', str(count))
 							for i in range(25):
 								time.sleep(0.3)
@@ -616,21 +561,6 @@ class Steam:
 										haod_x, haod_y = pyg.center(haod)
 										self.dianji(haod_x, haod_y)  # 点击好
 										raise Networkerror("Bad hostname")
-									if int(str(time.localtime().tm_min)[-1]) is 0:
-										# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-										if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
-											if tuisong_time is None or time.time() - tuisong_time > 600:
-												count_per_hour = count - start_count
-												self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
-												tuisong_time = time.time()
-										# 整点发送推送
-										if int(str(time.localtime().tm_min)) == 00:
-											if time.time() - info.st_mtime < 600:
-												if tuisong_time is None or time.time() - tuisong_time > 600:
-													count_per_hour = count - start_count
-													start_count = count
-													self.tuisong(count_per_hour, "一切正常！", serviceapi)
-													tuisong_time = time.time()
 							except Networkerror:
 								pass
 						if qr is not None:
@@ -646,23 +576,6 @@ class Steam:
 						if xyb is not None:
 							s_x, s_y = pyg.center(xyb)
 							self.dianji(s_x, s_y)  # 点击下一步
-						# 每10分钟检测一次
-						if int(str(time.localtime().tm_min)[-1]) is 0:
-							# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-							if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
-								if tuisong_time is None or time.time() - tuisong_time > 600:
-									count_per_hour = count - start_count
-									self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
-									tuisong_time = time.time()
-									break
-							# 整点发送推送
-							if int(str(time.localtime().tm_min)) == 00:
-								if time.time() - info.st_mtime < 600:
-									if tuisong_time is None or time.time() - tuisong_time > 600:
-										count_per_hour = count - start_count
-										start_count = count
-										self.tuisong(count_per_hour, "一切正常！", serviceapi)
-										tuisong_time = time.time()
 			if haod is not None:
 				s_x, s_y = pyg.center(haod)
 				self.dianji(s_x, s_y)  # 点击好
@@ -689,11 +602,6 @@ class Steam:
 		cf = configparser.ConfigParser()
 		cf.read("config.ini")  # 读取配置文件
 		count = int(cf.get("config", "count"))
-		start_count = count
-		start_time = time.time()
-		serviceapi = cf.get("config", "serviceapi")
-		filename = "config.ini"  # 监控配置文件改动
-		info = os.stat(filename)
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
@@ -729,8 +637,6 @@ class Steam:
 							count = count + 1
 							cf.set('config', 'count', str(count))
 							cf.write(open("config.ini", 'w'))  # 写入count次数
-							filename = "config.ini"  # 监控配置文件改动
-							info = os.stat(filename)
 							self.logger.info('决斗！已对战%s次', str(count))
 							for i in range(25):
 								time.sleep(0.3)
@@ -846,21 +752,6 @@ class Steam:
 										haod_x, haod_y = pyg.center(haod)
 										self.dianji(haod_x, haod_y)  # 点击好
 										raise Networkerror("Bad hostname")
-									if int(str(time.localtime().tm_min)[-1]) is 0:
-										# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-										if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
-											if tuisong_time is None or time.time() - tuisong_time > 600:
-												count_per_hour = count - start_count
-												self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
-												tuisong_time = time.time()
-										# 整点发送推送
-										if int(str(time.localtime().tm_min)) == 00:
-											if time.time() - info.st_mtime < 600:
-												if tuisong_time is None or time.time() - tuisong_time > 600:
-													count_per_hour = count - start_count
-													start_count = count
-													self.tuisong(count_per_hour, "一切正常！", serviceapi)
-													tuisong_time = time.time()
 							except Networkerror:
 								pass
 						if qr is not None:
@@ -876,23 +767,6 @@ class Steam:
 						if xyb is not None:
 							s_x, s_y = pyg.center(xyb)
 							self.dianji(s_x, s_y)  # 点击下一步
-						# 每10分钟检测一次
-						if int(str(time.localtime().tm_min)[-1]) is 0:
-							# 文件没有改动超过10分钟且运行时间超过10分钟微信推送提醒
-							if time.time() - info.st_mtime > 600 and time.time() - start_time > 600:
-								if tuisong_time is None or time.time() - tuisong_time > 600:
-									count_per_hour = count - start_count
-									self.tuisong(count_per_hour, "脚本异常停止！", serviceapi)
-									tuisong_time = time.time()
-									break
-							# 整点发送推送
-							if int(str(time.localtime().tm_min)) == 00:
-								if time.time() - info.st_mtime < 600:
-									if tuisong_time is None or time.time() - tuisong_time > 600:
-										count_per_hour = count - start_count
-										start_count = count
-										self.tuisong(count_per_hour, "一切正常！", serviceapi)
-										tuisong_time = time.time()
 			if haod is not None:
 				s_x, s_y = pyg.center(haod)
 				self.dianji(s_x, s_y)  # 点击好
@@ -915,7 +789,6 @@ class Steam:
 	def huodong_zuidui_steam(self):
 		win32api.keybd_event(13, 0, 0, 0)  #
 		win32gui.SetForegroundWindow(self.hwnd)  # 窗口显示最前面
-		global tuisong_time
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
@@ -980,9 +853,8 @@ class Steam:
 					time.sleep(1)
 
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
 	WindowsName = u'Yu-Gi-Oh! DUEL LINKS'  # steam
-	# WindowsName = u'雷电模拟器'
 	while True:
 		ulist = []
 		print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
@@ -1017,4 +889,4 @@ if __name__ == "__main__":
 			demo.huodong_zuidui_steam()
 		else:
 			print("!!!!!输入有误,请重新输入!!!!!")
-			time.sleep(1)
+			time.sleep(1)'''
