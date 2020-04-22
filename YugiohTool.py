@@ -51,6 +51,7 @@ def tuisongfunction():
 	filename = "config.ini"  # 监控配置文件改动
 	while True:
 		time.sleep(10)
+		cf.read("config.ini")  # 读取配置文件
 		info = os.stat(filename)
 		count = int(cf.get("config", "count"))
 		if int(str(time.localtime().tm_min)[-1]) is 0:
