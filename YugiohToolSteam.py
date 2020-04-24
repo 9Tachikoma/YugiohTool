@@ -19,29 +19,30 @@ import configparser
 import logging
 import base64
 
-from CaiDan_png import img as caidan
-from Chongshi_png import img as chongshi
-from duorenwu_png import img as duorenwu
-from Hao_png import img as hao
-from Jieshu_png import img as jiesu
-from JueDou_png import img as juedou
-from QueRen_png import img as queren
-from XiaYiBu_png import img as xiayibu
-from zhongduan_png import img as zhongduan
-from zhujiemian_png import img as zhujiemian
-from fanhui_png import img as fanhui
-from lvse_png import img as lvse
-from zhandou_png import img as zhandou
-from shijuedou_png import img as shijuedou
-from kc_png import img as kcb
-from paiming_png import img as paimin
-from xiuxian_png import img as xiuxian
+from CaiDan_steam_png import img as caidan
+from Chongshi_steam_png import img as chongshi
+from duorenwu_steam_png import img as duorenwu
+from Hao_steam_png import img as hao
+from Jieshu_steam_png import img as jiesu
+from JueDou_steam_png import img as juedou
+from QueRen_steam_png import img as queren
+from XiaYiBu_steam_png import img as xiayibu
+from zhongduan_steam_png import img as zhongduan
+from zhujiemian_steam_png import img as zhujiemian
+from fanhui_steam_png import img as fanhui
+from lvse_steam_png import img as lvse
+from zhandou_steam_png import img as zhandou
+from shijuedou_steam_png import img as shijuedou
+from kc_steam_png import img as kcb
+from paiming_steam_png import img as paimin
+from xiuxian_steam_png import img as xiuxian
 from kunnan_png import img as kunnan
 from zidongjuedou_png import img as zidongjuedou
 from zudui_png import img as zudui
 from feichangkunnan_png import img as fckunnan
 from clear_png import img as clear
-from guanbi_png import img as guanbi
+from guanbi_steam_png import img as guanbi
+from zandouQueRen_steam_png import img as zhandouqueren
 
 importlib.reload(sys)
 
@@ -126,42 +127,41 @@ class Steam:
 		tmp.write(base64.b64decode(clear))
 		tmp = open('YugiohTool/api-gb.dll', 'wb')
 		tmp.write(base64.b64decode(guanbi))
+		tmp = open('YugiohTool/api-zdqr.dll', 'wb')
+		tmp.write(base64.b64decode(zhandouqueren))
 		tmp.close()
-		first_list = []
 		if free == "1":
-			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-			first_list.append([" ", "脚本交流和售后群908563503 ", " "])
-			first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
-			first_list.append([" ", "当前版本为完整版，有任何问题或者建议请联系我", " "])
-			first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
-			for f_ul in first_list:
-				print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
-				if f_ul != first_list[-1]:
-					print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
-			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ 脚本交流和售后群９０８５６３５０３　　　　　　　　　　　　　")
+			print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ 使用前请务必先阅读＂脚本使用方法．ｄｏｃｘ＂　　　　　　　")
+			print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ 当前版本为完整版，有任何问题或者建议请联系我　　　　　　　")
+			print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ ★★★★★要关闭脚本请把鼠标放到屏幕左上角停留２秒钟★★★★★ 　　 ")
+			print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 		if free == "2":
-			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-			first_list.append([" ", "试用版脚本交流群819827842", " "])
-			first_list.append([" ", "使用前请务必先阅读'脚本使用方法.docx' ", " "])
-			first_list.append([" ", "当前版本为试用版，挂机三十分钟后停止，继续试用请重新打开脚本", " "])
-			first_list.append([" ", "★★★★★要关闭脚本请把鼠标放到屏幕左上角停留2秒钟★★★★★", " "])
-			for f_ul in first_list:
-				print("{0:^2}\t{1:{3}^5}\t{2:^2}".format(f_ul[0], f_ul[1], f_ul[2], chr(12288)))
-				if f_ul != first_list[-1]:
-					print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
-			print(" ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ 试用版脚本交流群８１９８２７８４２　　　　　　　　　　　　")
+			print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ 使用前请务必先阅读＂脚本使用方法．ｄｏｃｘ＂　　　　　　　")
+			print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ 当前版本为试用版，挂机三十分钟后停止，继续试用请重新打开脚本")
+			print("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ")
+			print("┃ ★★★★★要关闭脚本请把鼠标放到屏幕左上角停留２秒钟★★★★★ 　　 　")
+			print("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
 	@staticmethod
 	def dianji(x, y):
-		pyg.moveTo(x + random.randint(-10, 10), y + random.randint(-10, 10))
+		pyg.moveTo(x + random.randint(-6, 6), y + random.randint(-6, 6))
 		time.sleep(0.1)
 		pyg.mouseDown()
 		pyg.mouseUp()
 
 	@staticmethod
 	def dianji_guding(x, y):
-		x1 = topx + int((topx1 - topx) * x) + random.randint(-10, 10)
-		y1 = topy + int((topy1 - topy) * y) + random.randint(-10, 10)
+		x1 = topx + int((topx1 - topx) * x) + random.randint(-6, 6)
+		y1 = topy + int((topy1 - topy) * y) + random.randint(-6, 6)
 		pyg.moveTo(x1, y1)
 		time.sleep(0.1)
 		pyg.mouseDown()
@@ -169,7 +169,7 @@ class Steam:
 
 	@staticmethod
 	def tuodong(x, y):
-		pyg.moveTo(x, y + 50)
+		pyg.moveTo(x, y + 30)
 		time.sleep(0.2)
 		pyg.dragRel(0, -200, 0.2)
 
@@ -177,7 +177,7 @@ class Steam:
 	def tuodong_guding(x, y):
 		x1 = topx + int((topx1 - topx) * x)
 		y1 = topy + int((topy1 - topy) * y)
-		pyg.moveTo(x1, y1 + 50)
+		pyg.moveTo(x1, y1 + 30)
 		time.sleep(0.2)
 		pyg.dragRel(0, -200, 0.2)
 
@@ -191,10 +191,10 @@ class Steam:
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
-			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
-			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
-			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.60, grayscale=True)
+			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.80, grayscale=True)
+			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
+			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 			if zjm is not None:
 				self.dianji_guding(0.4537, 0.9679)  # 点击pvp门固定点
@@ -205,7 +205,7 @@ class Steam:
 				# 	self.dianji_guding(0.4537, 0.9679)  # 点击pvp门固定点
 				# 	time.sleep(1)
 				kc = pyg.locateOnScreen('YugiohTool/api-kc.dll', confidence=0.80, grayscale=True)
-				pm = pyg.locateOnScreen('YugiohTool/api-pm.dll', confidence=0.60, grayscale=True)
+				pm = pyg.locateOnScreen('YugiohTool/api-pm.dll', confidence=0.80, grayscale=True)
 				if str(arg) == '1':
 					mode = kc
 				elif str(arg) == '2':
@@ -221,11 +221,11 @@ class Steam:
 					while True:
 						time.sleep(0.5)
 						self.dianji_guding(0.4663, 0.0857)
-						jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
-						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-						cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
-						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
-						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.60, grayscale=True)
+						jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.80, grayscale=False)
+						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+						cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
+						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
+						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.80, grayscale=True)
 						cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 						if cs is not None:
 							s_x, s_y = pyg.center(cs)
@@ -241,7 +241,7 @@ class Steam:
 							s_x, s_y = pyg.center(cd)
 							self.dianji(s_x, s_y)  # 点击菜单
 							time.sleep(0.5)
-							js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.60, grayscale=True)
+							js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.80, grayscale=True)
 							if js is not None:
 								s_x, s_y = pyg.center(js)
 								self.dianji(s_x, s_y)  # 点击结束回合
@@ -288,17 +288,17 @@ class Steam:
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
-			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
-			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
-			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.60, grayscale=True)
+			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.80, grayscale=True)
+			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
+			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 			if zjm is not None:
 				self.dianji_guding(0.3460, 0.9708)  # 点击传送门固定点
 				time.sleep(5)
-				sjd = pyg.locateOnScreen('YugiohTool/api-sjd.dll', confidence=0.60, grayscale=True)
-				haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-				xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
+				sjd = pyg.locateOnScreen('YugiohTool/api-sjd.dll', confidence=0.80, grayscale=False)
+				haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+				xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
 				time.sleep(0.3)
 				if sjd is not None:
 					self.dianji_guding(0.3913, 0.6931)  # 点击等级:10
@@ -309,7 +309,7 @@ class Steam:
 					for i in range(25):
 						time.sleep(0.5)
 						self.dianji_guding(0.5723, 0.0926)
-						sjd = pyg.locateOnScreen('YugiohTool/api-sjd.dll', confidence=0.60, grayscale=True)
+						sjd = pyg.locateOnScreen('YugiohTool/api-sjd.dll', confidence=0.80, grayscale=False)
 						if sjd is not None:
 							s_x, s_y = pyg.center(sjd)
 							self.dianji(s_x, s_y)  # 点击决斗
@@ -324,8 +324,8 @@ class Steam:
 							gongjicount = 0
 							time.sleep(0.5)
 							self.dianji_guding(0.4663, 0.0857)
-							cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
-							haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
+							cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
+							haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 							if cd is not None:
 								self.dianji_guding(0.4783, 0.9328)  # 点击卡牌
 								time.sleep(0.5)
@@ -343,7 +343,7 @@ class Steam:
 										time.sleep(0.3)
 										ls = pyg.locateOnScreen('YugiohTool/api-ls.dll', confidence=0.80,
 										                        grayscale=False)
-										haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60,
+										haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80,
 										                          grayscale=True)
 										if ls is not None:
 											ls_x, ls_y = pyg.center(ls)
@@ -359,13 +359,13 @@ class Steam:
 											for j in range(25):
 												time.sleep(0.3)
 												# 检测菜单
-												cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+												cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80,
 												                        grayscale=True)
 												if cd is not None:
 													s_x, s_y = pyg.center(cd)
 													self.dianji(s_x, s_y)  # 点击菜单
 													time.sleep(0.5)
-													js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.60,
+													js = pyg.locateOnScreen('YugiohTool/api-js.dll', confidence=0.80,
 													                        grayscale=True)
 													if js is not None:
 														s_x, s_y = pyg.center(js)
@@ -412,9 +412,9 @@ class Steam:
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
-			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
-			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
+			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.80, grayscale=True)
+			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
 			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 			if zjm is not None:
@@ -431,10 +431,10 @@ class Steam:
 					while True:
 						time.sleep(0.5)
 						self.dianji_guding(0.4663, 0.0857)  # 点击空白
-						jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
-						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
-						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.60, grayscale=True)
+						jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.80, grayscale=False)
+						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
+						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.80, grayscale=True)
 						cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 						huihecount = 1
 						if cs is not None:
@@ -463,8 +463,8 @@ class Steam:
 									gongjicount = 0
 									time.sleep(0.5)
 									self.dianji_guding(0.4663, 0.0857)
-									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
-									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
+									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
+									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 									a = a + 1
 									if cd is not None:
 										a = 1
@@ -474,7 +474,7 @@ class Steam:
 										time.sleep(2)
 										for k in range(100):  # 等菜单
 											time.sleep(0.5)
-											cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+											cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80,
 											                        grayscale=True)
 											if cd is not None:
 												s_x, s_y = pyg.center(cd)
@@ -490,7 +490,7 @@ class Steam:
 											try:
 												for h in range(100):  # 等菜单
 													time.sleep(0.5)
-													cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+													cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80,
 													                        grayscale=True)
 
 													if cd is not None:
@@ -500,12 +500,19 @@ class Steam:
 															                         confidence=0.80,
 															                         grayscale=False)
 															haod = pyg.locateOnScreen('YugiohTool/api-h.dll',
-															                          confidence=0.60,
+															                          confidence=0.80,
+															                          grayscale=True)
+															zdqr = pyg.locateOnScreen('YugiohTool/api-zdqr.dll',
+															                          confidence=0.80,
 															                          grayscale=True)
 															if lvs is not None:
 																ls_x, ls_y = pyg.center(lvs)
 																self.tuodong(ls_x, ls_y)  # 拖动攻击
 																gongjicount = gongjicount + 1
+																time.sleep(1)
+															if zdqr is not None:
+																ls_x, ls_y = pyg.center(zdqr)
+																self.tuodong(ls_x, ls_y)  # 点击确认
 																time.sleep(1)
 															if haod is not None:
 																haod_x, haod_y = pyg.center(haod)
@@ -517,14 +524,14 @@ class Steam:
 																	time.sleep(0.3)
 																	# 检测菜单
 																	cd = pyg.locateOnScreen('YugiohTool/api-cd.dll',
-																	                        confidence=0.60,
+																	                        confidence=0.80,
 																	                        grayscale=True)
 																	if cd is not None:
 																		s_x, s_y = pyg.center(cd)
 																		self.dianji(s_x, s_y)  # 点击菜单
 																		time.sleep(0.5)
 																		js = pyg.locateOnScreen('YugiohTool/api-js.dll',
-																		                        confidence=0.60,
+																		                        confidence=0.80,
 																		                        grayscale=True)
 																		if js is not None:
 																			s_x, s_y = pyg.center(js)
@@ -537,14 +544,14 @@ class Steam:
 																for f in range(25):  # 检测菜单
 																	time.sleep(0.3)
 																	cd = pyg.locateOnScreen('YugiohTool/api-cd.dll',
-																	                        confidence=0.60,
+																	                        confidence=0.80,
 																	                        grayscale=True)
 																	if cd is not None:
 																		s_x, s_y = pyg.center(cd)
 																		self.dianji(s_x, s_y)  # 点击菜单
 																		time.sleep(0.5)
 																		js = pyg.locateOnScreen('YugiohTool/api-js.dll',
-																		                        confidence=0.60,
+																		                        confidence=0.80,
 																		                        grayscale=True)
 																		if js is not None:
 																			s_x, s_y = pyg.center(js)
@@ -605,9 +612,9 @@ class Steam:
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
-			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
+			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.80, grayscale=True)
 			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
-			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
+			xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
 			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 			if zjm is not None:
@@ -622,10 +629,10 @@ class Steam:
 					while True:
 						time.sleep(0.5)
 						self.dianji_guding(0.4663, 0.0857)  # 点击空白
-						jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.60, grayscale=True)
-						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
-						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.60, grayscale=True)
-						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.60, grayscale=True)
+						jd = pyg.locateOnScreen('YugiohTool/api-jd.dll', confidence=0.80, grayscale=False)
+						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
+						xyb = pyg.locateOnScreen('YugiohTool/api-xyb.dll', confidence=0.80, grayscale=True)
+						qr = pyg.locateOnScreen('YugiohTool/api-qr.dll', confidence=0.80, grayscale=True)
 						cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 						huihecount = 1
 						if cs is not None:
@@ -654,8 +661,8 @@ class Steam:
 									gongjicount = 0
 									time.sleep(0.5)
 									self.dianji_guding(0.4663, 0.0857)
-									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60, grayscale=True)
-									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.60, grayscale=True)
+									cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80, grayscale=True)
+									haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 									a = a + 1
 									if cd is not None:
 										a = 1
@@ -665,14 +672,14 @@ class Steam:
 										time.sleep(2)
 										for k in range(100):  # 等菜单
 											time.sleep(0.5)
-											cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+											cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80,
 											                        grayscale=True)
 											if cd is not None:
 												s_x, s_y = pyg.center(cd)
 												self.dianji(s_x, s_y)  # 点击菜单
 												break
 										time.sleep(1)
-										zdu = pyg.locateOnScreen('YugiohTool/api-zdu.dll', confidence=0.60,
+										zdu = pyg.locateOnScreen('YugiohTool/api-zdu.dll', confidence=0.80,
 										                         grayscale=True)
 										if zdu is not None:
 											zdu_x, zdu_y = pyg.center(zdu)
@@ -681,7 +688,7 @@ class Steam:
 											try:
 												for h in range(100):  # 等菜单
 													time.sleep(0.5)
-													cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.60,
+													cd = pyg.locateOnScreen('YugiohTool/api-cd.dll', confidence=0.80,
 													                        grayscale=True)
 
 													if cd is not None:
@@ -691,12 +698,19 @@ class Steam:
 															                         confidence=0.80,
 															                         grayscale=False)
 															haod = pyg.locateOnScreen('YugiohTool/api-h.dll',
-															                          confidence=0.60,
+															                          confidence=0.80,
+															                          grayscale=True)
+															zdqr = pyg.locateOnScreen('YugiohTool/api-zdqr.dll',
+															                          confidence=0.80,
 															                          grayscale=True)
 															if lvs is not None:
 																ls_x, ls_y = pyg.center(lvs)
 																self.tuodong(ls_x, ls_y)  # 拖动攻击
 																gongjicount = gongjicount + 1
+																time.sleep(1)
+															if zdqr is not None:
+																ls_x, ls_y = pyg.center(zdqr)
+																self.tuodong(ls_x, ls_y)  # 点击确认
 																time.sleep(1)
 															if haod is not None:
 																haod_x, haod_y = pyg.center(haod)
@@ -708,14 +722,14 @@ class Steam:
 																	time.sleep(0.3)
 																	# 检测菜单
 																	cd = pyg.locateOnScreen('YugiohTool/api-cd.dll',
-																	                        confidence=0.60,
+																	                        confidence=0.80,
 																	                        grayscale=True)
 																	if cd is not None:
 																		s_x, s_y = pyg.center(cd)
 																		self.dianji(s_x, s_y)  # 点击菜单
 																		time.sleep(0.5)
 																		js = pyg.locateOnScreen('YugiohTool/api-js.dll',
-																		                        confidence=0.60,
+																		                        confidence=0.80,
 																		                        grayscale=True)
 																		if js is not None:
 																			s_x, s_y = pyg.center(js)
@@ -728,14 +742,14 @@ class Steam:
 																for f in range(25):  # 检测菜单
 																	time.sleep(0.3)
 																	cd = pyg.locateOnScreen('YugiohTool/api-cd.dll',
-																	                        confidence=0.60,
+																	                        confidence=0.80,
 																	                        grayscale=True)
 																	if cd is not None:
 																		s_x, s_y = pyg.center(cd)
 																		self.dianji(s_x, s_y)  # 点击菜单
 																		time.sleep(0.5)
 																		js = pyg.locateOnScreen('YugiohTool/api-js.dll',
-																		                        confidence=0.60,
+																		                        confidence=0.80,
 																		                        grayscale=True)
 																		if js is not None:
 																			s_x, s_y = pyg.center(js)
@@ -792,14 +806,14 @@ class Steam:
 		while True:
 			time.sleep(0.5)
 			self.dianji_guding(0.4663, 0.0857)  # 点击空白
-			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.60, grayscale=True)
+			zjm = pyg.locateOnScreen('YugiohTool/api-zjm.dll', confidence=0.80, grayscale=True)
 			haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 			cs = pyg.locateOnScreen('YugiohTool/api-cs.dll', confidence=0.80, grayscale=True)
 			fhui = pyg.locateOnScreen('YugiohTool/api-fh.dll', confidence=0.80, grayscale=True)
 			if zjm is not None:
 				self.dianji_guding(0.5072, 0.8935)  # 点击活动固定点
 				time.sleep(2)
-				zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.60, grayscale=True)
+				zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.80, grayscale=True)
 				time.sleep(0.3)
 				if zdui is not None:
 					s_x, s_y = pyg.center(zdui)
@@ -807,9 +821,9 @@ class Steam:
 					while True:
 						time.sleep(0.3)
 						self.dianji_guding(0.4663, 0.0857)  # 点击空白
-						zdjd = pyg.locateOnScreen('YugiohTool/api-zdjd.dll', confidence=0.60, grayscale=True)
+						zdjd = pyg.locateOnScreen('YugiohTool/api-zdjd.dll', confidence=0.80, grayscale=True)
 						kn = pyg.locateOnScreen('YugiohTool/api-kn.dll', confidence=0.80, grayscale=True)
-						zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.60, grayscale=True)
+						zdui = pyg.locateOnScreen('YugiohTool/api-zdui.dll', confidence=0.80, grayscale=True)
 						haod = pyg.locateOnScreen('YugiohTool/api-h.dll', confidence=0.80, grayscale=True)
 						fckn = pyg.locateOnScreen('YugiohTool/api-fckn.dll', confidence=0.80, grayscale=True)
 						cl = pyg.locateOnScreen('YugiohTool/api-cl.dll', confidence=0.40, grayscale=True)
